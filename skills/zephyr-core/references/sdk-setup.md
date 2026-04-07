@@ -21,6 +21,19 @@ bunx with-zephyr
 
 Why: the codemod detects the stack and makes the smallest setup change for supported bundlers/frameworks.
 
+## Minimal prerequisites
+
+- A Zephyr account or org/app access path
+- A git repository with a remote, branch, and commit
+- A supported Zephyr SDK path, or a build output directory for `zephyr-agent`
+
+## What happens after `with-zephyr`
+
+- It detects the stack and usually adds the matching Zephyr integration to the project config.
+- It may add or update the relevant build config file for the bundler/framework.
+- The next step is normally just to run the app's build command.
+- After a successful Zephyr-enabled build, look for the version URL in the build output/logs.
+
 ## SDK picker
 
 Use the official picker doc first:
@@ -61,6 +74,10 @@ await uploadOutputToZephyr({
   ssr: true,
 });
 ```
+
+Use this fallback when there is no official Zephyr SDK for the stack, but the project still produces a deployable output directory. It is the low-level integration path for custom frameworks and internal tooling.
+
+Minimum assumption: Zephyr still needs a real built output directory and enough app/build context to upload it correctly.
 
 ## Smallest working examples
 
@@ -117,10 +134,18 @@ Source example: `/Users/hzk/dev/zephyr/zephyr-examples/frameworks/astro/astro.co
 
 ## Important setup notes
 
-- Zephyr integration should stay near the final bundler/framework config, usually as the last plugin/wrapper.
+- Plugin placement is stack-specific, not globally “always last”.
+- Nx compose-plugin setups usually put Zephyr last in the composition.
+- Vite Module Federation and framework-specific integrations can require a specific order; verify against the stack docs/example before moving plugins around.
 - For existing apps, prefer the codemod before hand-editing configs.
 - Git context matters for deployment identity: repo, branch, and commit need to exist.
 - If docs disagree on Rspack naming, prefer `zephyr-rspack-plugin` from the SDK picker and examples.
+
+## Important availability caveats
+
+- Astro integration is static-only. Do not present it as a general SSR deployment path.
+- Nitro v3, Nuxt, and TanStack Start SSR-style paths are currently constrained to Zephyr's managed Cloudflare path in the public docs.
+- If the user needs unsupported SSR behavior or a custom runtime, verify whether `zephyr-agent` output upload is a better fit than an official framework SDK.
 
 ## Best docs to link
 

@@ -9,6 +9,16 @@ Use this file when the user asks what Zephyr builds produce, what a snapshot is,
 - Tags and environments are mutable routing layers on top of immutable builds.
 - Rollback is fast because Zephyr changes pointers, not app artifacts.
 
+## Quick glossary
+
+| Term        | Meaning                                                        | Best use                                            |
+| ----------- | -------------------------------------------------------------- | --------------------------------------------------- |
+| Build       | The bundler/framework build that Zephyr observes and publishes | The starting action                                 |
+| Version     | Immutable deployed build state with a permanent URL            | Exact preview, debugging, rollback target           |
+| Snapshot    | Underlying stored artifact record for what was built on edge   | Internal precision when explaining architecture     |
+| Tag         | Mutable named selector, rule-based or manually pinned          | Moving channel like `main`, `beta`, `stable`        |
+| Environment | Mutable deployment target with config/domains/overrides        | Stable deploy target like `staging` or `production` |
+
 ## Terms
 
 ### Version
@@ -28,7 +38,7 @@ Source: `/Users/hzk/dev/zephyr/DEPLOYMENT_ARCHITECTURE_SIMPLE.md`
 ### Tag
 
 - Mutable named selector.
-- Usually resolves to the newest matching version based on rules.
+- Usually resolves to the newest matching version based on rules, but can also be pinned manually to a fixed version.
 - Good for dynamic channels like `main`, `beta`, `release`, `stable`.
 
 ### Environment
@@ -36,6 +46,7 @@ Source: `/Users/hzk/dev/zephyr/DEPLOYMENT_ARCHITECTURE_SIMPLE.md`
 - Mutable deployment target with its own config, domains, and optional overrides.
 - Can point to a tag or a fixed version.
 - Good for `development`, `staging`, `production`, previews, and white-label targets.
+- Can also be locked/protected in stricter production workflows.
 
 ## Stage 0 vs Stage 1
 
@@ -65,6 +76,14 @@ Environment URL mental model:
 https://{env-name}-{app-uid}-{hash}.{domain}
 ```
 
+Which URL to share:
+
+| URL             | Share when                                                     | Why                                 |
+| --------------- | -------------------------------------------------------------- | ----------------------------------- |
+| Version URL     | You need an exact build preview or debugging link              | Immutable                           |
+| Tag URL         | You want a moving channel like `main` or `beta`                | Follows tag resolution              |
+| Environment URL | You want the stable deployment target users or QA should visit | Carries environment behavior/config |
+
 ## Dashboard workflow
 
 - Build creates versions automatically.
@@ -73,12 +92,21 @@ https://{env-name}-{app-uid}-{hash}.{domain}
 - Users create environments that point to a tag or a fixed version.
 - Promotion usually means moving an environment or tag pointer to a chosen version.
 - Rollback usually means repointing back to an older known-good version.
+- Tags and environments can also be locked/protected to prevent accidental changes.
 
 ## Built output notes worth calling out
 
 - Zephyr is deployment-first and build-integrated; it observes bundler output and uploads assets after build.
 - Docs describe a permanent version URL, and example/build output commonly surfaces that URL after build completes.
 - The public mental model should stay on version URL first; mention snapshot internals only when useful.
+
+## Smallest first-time path
+
+1. Identify the stack and pick the right SDK or fallback upload path.
+2. Run `with-zephyr` or add the correct Zephyr integration.
+3. Build the app.
+4. Start by using the version URL for exact preview/testing.
+5. Add tags or environments later when the user needs moving channels or stable deploy targets.
 
 ## Correctness notes
 

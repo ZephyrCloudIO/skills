@@ -10,12 +10,23 @@ metadata:
 
 Use this skill for general Zephyr frontend adoption and product-model questions. Keep answers short, accurate, and grounded in the canonical docs and examples.
 
+Zephyr is a build-integrated deployment platform for frontend and frontend-adjacent apps: it plugs into the build, publishes immutable versions, and lets users route traffic through tags and environments.
+
 ## What to cover
 
 - Start with the smallest useful answer.
 - Prefer Zephyr's user-facing model first: setup -> build -> version URL -> tags/envs -> promote/rollback.
 - Use repo/code-path nuance only when it clarifies behavior or corrects docs drift.
 - If the question is really about remote resolution, hosts/remotes, `zephyr:dependencies`, or multi-bundler Module Federation, switch to `../zephyr-module-federation/SKILL.md`.
+- First-time users usually need: a supported stack or fallback upload path, Zephyr auth/account access, and git metadata for repo/branch/commit identity.
+
+## What Zephyr does
+
+- Zephyr integrates with the build and publishes immutable frontend versions.
+- Zephyr gives users permanent version URLs plus mutable tags and environments.
+- Zephyr can manage public runtime config overrides and deployment routing.
+- Zephyr does not replace the app's own framework/bundler config; it integrates into it.
+- Zephyr does not make public `ZE_PUBLIC_*` values secret.
 
 ## Core mental model
 

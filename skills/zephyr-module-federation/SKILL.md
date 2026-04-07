@@ -10,12 +10,19 @@ metadata:
 
 Use this skill for Zephyr's Module Federation workflow: host/remote setup, `zephyr:dependencies`, resolution behavior, build order, and cross-bundler examples.
 
+Module Federation is the pattern where a host app loads code from separately built remote apps at runtime.
+
+Zephyr does not replace normal Module Federation config; it adds deploy-time dependency resolution and routing on top of the host/remote setup.
+
+Use this skill when the user needs help wiring, resolving, or deploying hosts/remotes. Use `zephyr-core` when the question is mostly about general Zephyr setup, version URLs, tags/environments, or public env vars.
+
 ## What to cover
 
 - Explain both layers: bundler MF config and Zephyr dependency mapping.
 - Prefer concrete examples over abstract theory.
 - Keep the answer grounded in the user's stack: Webpack, Rspack, Vite, Rsbuild, Turbo, Nx, or mixed-bundler.
 - If the question is mostly about general Zephyr setup, version URLs, tags/envs, or public env vars, also read `../zephyr-core/SKILL.md`.
+- Localhost remote URLs in examples are for local development only; deployed answers should steer toward Zephyr resolution instead of hardcoded production URLs.
 
 ## Core mental model
 

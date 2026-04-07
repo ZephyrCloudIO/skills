@@ -7,6 +7,7 @@ Use this file when the user asks about `ZE_PUBLIC_*`, runtime config, build once
 - `ZE_PUBLIC_*` variables are public client-facing values captured at build time.
 - They are not secret storage.
 - Zephyr can override them per environment at runtime.
+- Public docs currently describe environment-level overrides as beta.
 
 ## How it works
 
@@ -15,6 +16,10 @@ Use this file when the user asks about `ZE_PUBLIC_*`, runtime config, build once
 3. Runtime override: an environment can inject different values without rebuilding.
 
 Why this matters: the same built artifact can run in development, staging, and production with different public config.
+
+This applies to public client-facing values. Secure server-only values are a separate concern and should not be modeled as `ZE_PUBLIC_*`.
+
+If the user asks where secrets should go instead, route them to the server-side environment variable path rather than public runtime overrides.
 
 ## Example
 
@@ -61,6 +66,7 @@ The same environment-level override system also supports remote dependency overr
 - Keep secrets out of `ZE_PUBLIC_*`.
 - Do not tell users they need a rebuild for normal per-environment public config changes.
 - If the value is server-only or sensitive, Zephyr public env var overrides are the wrong tool.
+- If the user needs secure server-side environment variables, explain that this is a different path than public runtime overrides.
 
 ## Best docs to link
 
