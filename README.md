@@ -22,7 +22,7 @@ Import the repo from GitHub using Cursor's documented skills flow:
 
 1. Open **Settings > Rules**
 2. Click **Add Rule** in **Project Rules**
-3. Choose **Remote Rule (Github)**
+3. Choose **Remote Rule (GitHub)**
 4. Enter `https://github.com/ZephyrCloudIO/skills`
 
 ### npx skills
