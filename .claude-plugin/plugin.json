@@ -1,0 +1,8 @@
+{
+  "name": "zephyr",
+  "description": "Skills for Zephyr Cloud: micro-frontends, preview deployments, version orchestration, MCP workflows, and platform tooling",
+  "version": "1.0.0",
+  "author": {
+    "name": "Zephyr Cloud IO"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "zephyr-cloud",
+  "owner": {
+    "name": "Zephyr Cloud IO"
+  },
+  "plugins": [
+    {
+      "description": "Skills for building with Zephyr Cloud",
+      "name": "zephyr",
+      "source": "./"
+    }
+  ]
+}
