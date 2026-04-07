@@ -56,7 +56,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 
 ## Resources
 
-- [Zephyr Cloud Documentation](https://zephyr-cloud.io/docs)
+- [Zephyr Cloud Documentation](https://docs.zephyr-cloud.io)
 - [Zephyr Dashboard](https://app.zephyr-cloud.io)
 - [Zephyr Mission Control](https://chromewebstore.google.com/detail/zephyr-mission-control/liflhldchhinbaeplljlplhnbkdidedn)
 - [Zephyr Examples](https://github.com/ZephyrCloudIO/zephyr-examples)

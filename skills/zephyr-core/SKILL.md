@@ -52,9 +52,9 @@ Zephyr is a build-integrated deployment platform for frontend and frontend-adjac
 - Raw docs path pattern: `https://docs.zephyr-cloud.io/<path>.md`
 - Docs index: `https://docs.zephyr-cloud.io/llms.txt`
 - Community help: `https://discord.gg/zephyrcloud`
-- Architecture nuance: `/Users/hzk/dev/zephyr/DEPLOYMENT_ARCHITECTURE_SIMPLE.md`
-- Public docs source: `/Users/hzk/dev/zephyr/zephyr-documentation/docs/`
-- Examples source: `/Users/hzk/dev/zephyr/zephyr-examples/`
+- Architecture docs: `https://docs.zephyr-cloud.io/reference/architecture.md`
+- Public docs source: `https://docs.zephyr-cloud.io`
+- Examples source: `https://github.com/ZephyrCloudIO/zephyr-examples`
 
 ## Guardrails
 

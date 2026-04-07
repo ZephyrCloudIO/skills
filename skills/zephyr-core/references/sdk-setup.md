@@ -40,7 +40,7 @@ Use the official picker doc first:
 
 - Docs page: `https://docs.zephyr-cloud.io/getting-started/find-your-sdk`
 - Raw markdown: `https://docs.zephyr-cloud.io/getting-started/find-your-sdk.md`
-- Source: `/Users/hzk/dev/zephyr/zephyr-documentation/docs/getting-started/find-your-sdk.mdx`
+- Source: `https://docs.zephyr-cloud.io/getting-started/find-your-sdk.md`
 
 Current mapping:
 
@@ -93,7 +93,7 @@ export default defineConfig({
 });
 ```
 
-Source example: `/Users/hzk/dev/zephyr/zephyr-examples/bundlers/react-vite/vite.config.ts`
+Source example: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/bundlers/react-vite/vite.config.ts`
 
 Rspack:
 
@@ -108,7 +108,7 @@ const config = defineConfig({
 export default withZephyr()(config);
 ```
 
-Source example: `/Users/hzk/dev/zephyr/zephyr-examples/bundlers/react-rspack/rspack.config.ts`
+Source example: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/bundlers/react-rspack/rspack.config.ts`
 
 TanStack Start:
 
@@ -118,11 +118,12 @@ import { withZephyrTanstackStart } from 'vite-plugin-tanstack-start-zephyr';
 plugins: [tanstackStart(), viteReact(), withZephyrTanstackStart()];
 ```
 
-Source example: `/Users/hzk/dev/zephyr/zephyr-examples/frameworks/tanstack-start/vite.config.ts`
+Source example: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/frameworks/tanstack-start/vite.config.ts`
 
 Astro:
 
 ```js
+import { defineConfig } from 'astro/config';
 import { withZephyr } from 'zephyr-astro-integration';
 
 export default defineConfig({
@@ -130,7 +131,7 @@ export default defineConfig({
 });
 ```
 
-Source example: `/Users/hzk/dev/zephyr/zephyr-examples/frameworks/astro/astro.config.mjs`
+Source example: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/frameworks/astro/astro.config.mjs`
 
 ## Important setup notes
 

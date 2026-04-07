@@ -42,8 +42,8 @@ Use this skill when the user needs help wiring, resolving, or deploying hosts/re
 
 ## Source priorities
 
-- Public docs source: `/Users/hzk/dev/zephyr/zephyr-documentation/docs/`
-- Examples source: `/Users/hzk/dev/zephyr/zephyr-examples/`
+- Public docs source: `https://docs.zephyr-cloud.io`
+- Examples source: `https://github.com/ZephyrCloudIO/zephyr-examples`
 - Docs site: `https://docs.zephyr-cloud.io`
 - Raw docs path pattern: `https://docs.zephyr-cloud.io/<path>.md`
 - Docs index: `https://docs.zephyr-cloud.io/llms.txt`

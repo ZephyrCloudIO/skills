@@ -5,18 +5,20 @@ settings:
   excludeLinksFromLockfile: false
 
 importers:
+
   .:
-    dependencies:
+    devDependencies:
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
 
 packages:
+
   prettier@3.8.1:
-    resolution:
-      { integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg== }
-    engines: { node: '>=14' }
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+    engines: {node: '>=14'}
     hasBin: true
 
 snapshots:
+
   prettier@3.8.1: {}

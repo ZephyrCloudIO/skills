@@ -37,9 +37,10 @@ If names drift, users often get confusing resolution or runtime-load failures.
 
 ## Vite host example
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/module-federation/react-vite-rspack-webpack/host/vite.config.ts`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/module-federation/react-vite-rspack-webpack/host/vite.config.ts`
 
 ```ts
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { withZephyr, type ModuleFederationOptions } from 'vite-plugin-zephyr';
 
@@ -64,9 +65,10 @@ export default defineConfig({
 
 ## Minimal remote example
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/bundlers/vite.mdx`
+File: `https://docs.zephyr-cloud.io/bundlers/vite.md`
 
 ```ts
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { withZephyr, type ModuleFederationOptions } from 'vite-plugin-zephyr';
 
@@ -89,7 +91,7 @@ export default defineConfig({
 
 ## Host dependency mapping
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/module-federation/react-vite-rspack-webpack/host/package.json`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/module-federation/react-vite-rspack-webpack/host/package.json`
 
 ```json
 "zephyr:dependencies": {

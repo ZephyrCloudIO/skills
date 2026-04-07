@@ -33,7 +33,7 @@ Use this file when the user asks what Zephyr builds produce, what a snapshot is,
 - In the architecture docs, snapshot and build-stats are different.
 - Snapshot is the immutable artifact record; build-stats are the metadata used by the async publish flow.
 
-Source: `/Users/hzk/dev/zephyr/DEPLOYMENT_ARCHITECTURE_SIMPLE.md`
+Source: `https://docs.zephyr-cloud.io/reference/architecture.md`
 
 ### Tag
 

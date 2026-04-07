@@ -4,14 +4,14 @@ Use this file when the user wants concrete Zephyr setup examples for frontend st
 
 ## Fast starting points
 
-- Vite SPA: `bundlers/react-vite`
-- Rspack SPA: `bundlers/react-rspack`
-- TanStack Start: `frameworks/tanstack-start`
-- Astro: `frameworks/astro`
-- Cross-bundler MF: `module-federation/react-vite-rspack-webpack`
-- Monorepo MF: `build-systems/turborepo-rspack-mf`
+- Vite SPA: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/bundlers/react-vite`
+- Rspack SPA: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/bundlers/react-rspack`
+- TanStack Start: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/frameworks/tanstack-start`
+- Astro: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/frameworks/astro`
+- Cross-bundler MF: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/module-federation/react-vite-rspack-webpack`
+- Monorepo MF: `https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/build-systems/turborepo-rspack-mf`
 
-Repo root: `/Users/hzk/dev/zephyr/zephyr-examples`
+Repo root: `https://github.com/ZephyrCloudIO/zephyr-examples`
 
 ## Core pattern
 
@@ -23,9 +23,10 @@ Repo root: `/Users/hzk/dev/zephyr/zephyr-examples`
 
 ### Minimal Vite
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/bundlers/react-vite/vite.config.ts`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/bundlers/react-vite/vite.config.ts`
 
 ```ts
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { withZephyr } from 'vite-plugin-zephyr';
 
@@ -36,9 +37,10 @@ export default defineConfig({
 
 ### Minimal Rspack
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/bundlers/react-rspack/rspack.config.ts`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/bundlers/react-rspack/rspack.config.ts`
 
 ```ts
+import { defineConfig } from '@rspack/cli';
 import { withZephyr } from 'zephyr-rspack-plugin';
 
 const config = defineConfig({
@@ -50,7 +52,7 @@ export default withZephyr()(config);
 
 ### TanStack Start
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/frameworks/tanstack-start/vite.config.ts`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/frameworks/tanstack-start/vite.config.ts`
 
 ```ts
 import { withZephyrTanstackStart } from 'vite-plugin-tanstack-start-zephyr';
@@ -60,9 +62,10 @@ plugins: [tanstackStart(), viteReact(), withZephyrTanstackStart()];
 
 ### Astro
 
-File: `/Users/hzk/dev/zephyr/zephyr-examples/frameworks/astro/astro.config.mjs`
+File: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/frameworks/astro/astro.config.mjs`
 
 ```js
+import { defineConfig } from 'astro/config';
 import { withZephyr } from 'zephyr-astro-integration';
 
 export default defineConfig({
