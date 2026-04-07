@@ -49,9 +49,10 @@ Clone this repo and copy the skill folders into the appropriate directory for yo
 
 Skills are contextual and auto-loaded based on your conversation. When a request matches a skill's triggers, the agent loads and applies the relevant skill to provide accurate, up-to-date guidance.
 
-| Skill | Useful for |
-| ----- | ---------- |
-| todo  | todo       |
+| Skill                      | Useful for                                                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `zephyr-core`              | Zephyr setup, `with-zephyr`, SDK selection, versions, tags, environments, snapshot/version URLs, dashboard flows, and public env vars |
+| `zephyr-module-federation` | `zephyr:dependencies`, host/remote setup, remote resolution, mixed-bundler Module Federation, and monorepo MF workflows               |
 
 ## Resources
 
