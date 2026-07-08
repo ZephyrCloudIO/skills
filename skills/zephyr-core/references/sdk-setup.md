@@ -13,13 +13,13 @@ curl -fsSL https://with.zephyr-cloud.io | node
 Other launch forms:
 
 ```bash
-npx with-zephyr
-yarn dlx with-zephyr
-pnpx with-zephyr
-bunx with-zephyr
+npx with-zephyr@latest
+yarn dlx with-zephyr@latest
+pnpx with-zephyr@latest
+bunx with-zephyr@latest
 ```
 
-Why: the codemod detects the stack and makes the smallest setup change for supported bundlers/frameworks.
+Why: the codemod detects the stack and makes the smallest setup change for supported bundlers/frameworks. The codemod already resolves the latest published version of each Zephyr package, so it avoids stale hardcoded versions.
 
 ## Minimal prerequisites
 
@@ -141,6 +141,7 @@ Source example: `https://github.com/ZephyrCloudIO/zephyr-examples/blob/main/fram
 - For existing apps, prefer the codemod before hand-editing configs.
 - Git context matters for deployment identity: repo, branch, and commit need to exist.
 - If docs disagree on Rspack naming, prefer `zephyr-rspack-plugin` from the SDK picker and examples.
+- When installing Zephyr packages manually, use `@latest` or verify the current latest version. Do not copy old version numbers from examples or previous PRs without checking. See `version-sources.md` for authoritative sources.
 
 ## Important availability caveats
 

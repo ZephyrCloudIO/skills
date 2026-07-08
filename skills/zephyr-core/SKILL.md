@@ -40,11 +40,12 @@ Zephyr is a build-integrated deployment platform for frontend and frontend-adjac
 
 1. Identify the user's stack and deployment goal.
 2. Read `references/sdk-setup.md` for setup guidance.
-3. Read `references/deployment-model.md` for versions, snapshots, tags, envs, and dashboard workflows.
-4. Read `references/env-vars.md` if the task mentions env vars, runtime config, build once deploy everywhere, or `ZE_PUBLIC_*`.
-5. Read `references/examples-resume.md` when the user wants concrete starter patterns.
-6. Read `references/docs-map.md` when deeper docs links are useful.
-7. Read `references/troubleshooting.md` when setup/build/auth/git issues appear.
+3. Read `references/version-sources.md` before adding or updating any Zephyr package or action version.
+4. Read `references/deployment-model.md` for versions, snapshots, tags, envs, and dashboard workflows.
+5. Read `references/env-vars.md` if the task mentions env vars, runtime config, build once deploy everywhere, or `ZE_PUBLIC_*`.
+6. Read `references/examples-resume.md` when the user wants concrete starter patterns.
+7. Read `references/docs-map.md` when deeper docs links are useful.
+8. Read `references/troubleshooting.md` when setup/build/auth/git issues appear.
 
 ## Source priorities
 
@@ -61,4 +62,5 @@ Zephyr is a build-integrated deployment platform for frontend and frontend-adjac
 - Do not invent SDK names; verify against `references/sdk-setup.md`.
 - Do not blur version vs tag vs environment; explain the distinction plainly.
 - Do not present `ZE_PUBLIC_*` as secret storage. They are public client-facing values.
+- Do not hardcode outdated Zephyr package or action versions. Prefer `@latest` or the latest release tag, and verify against `references/version-sources.md`.
 - Call out docs drift when relevant instead of silently repeating conflicting details.

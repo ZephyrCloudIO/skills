@@ -38,7 +38,8 @@ Use this skill when the user needs help wiring, resolving, or deploying hosts/re
 2. Read `references/remote-resolution.md` for `zephyr:dependencies`, selectors, and `workspace:*`.
 3. Read `references/examples.md` for concrete file paths and snippets.
 4. Read `references/gotchas.md` for build order, naming, and mixed-bundler edge cases.
-5. Link deeper docs from `references/docs-map.md`.
+5. Read `../zephyr-core/references/version-sources.md` before adding or updating any Zephyr package version.
+6. Link deeper docs from `references/docs-map.md`.
 
 ## Source priorities
 
@@ -53,4 +54,5 @@ Use this skill when the user needs help wiring, resolving, or deploying hosts/re
 - Do not treat `zephyr:dependencies` as a replacement for MF config; it complements it.
 - Do not recommend hardcoded production remote URLs when Zephyr resolution should be used.
 - Do not ignore build order for remotes and hosts.
+- Do not hardcode outdated Zephyr package versions. Prefer `@latest` or the latest release tag, and verify against `../zephyr-core/references/version-sources.md`.
 - Call out naming mismatches early; they are a common failure source.
