@@ -100,13 +100,12 @@ Which URL to share:
 - Docs describe a permanent version URL, and example/build output commonly surfaces that URL after build completes.
 - The public mental model should stay on version URL first; mention snapshot internals only when useful.
 
-## Smallest first-time path
+## Existing-version workflow
 
-1. Identify the stack and pick the right SDK or fallback upload path.
-2. Run `with-zephyr` or add the correct Zephyr integration.
-3. Build the app.
-4. Start by using the version URL for exact preview/testing.
-5. Add tags or environments later when the user needs moving channels or stable deploy targets.
+Start with the permanent version URL when inspecting an exact published build.
+Use tags or environments when the user needs a moving channel or a stable
+deployment target. SDK setup and build commands belong to the guides bundled
+with the relevant installed package, not this platform reference.
 
 ## Correctness notes
 

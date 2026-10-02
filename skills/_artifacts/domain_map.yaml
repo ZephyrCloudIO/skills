@@ -3,42 +3,23 @@ library:
 domains:
   - name: Zephyr platform workflows
     slug: platform
-    description: Adopt Zephyr and operate immutable versions through mutable tags and environments.
-  - name: Federated deployments
-    slug: federation
-    description: Coordinate host and remote deployment without replacing bundler federation configuration.
+    description: Operate immutable versions through mutable tags and environments.
 skills:
   - name: zephyr-core
     slug: zephyr-core
     domain: platform
-    description: Use when the user asks about Zephyr setup, with-zephyr, SDK selection, versions, tags, environments, snapshot/version URLs, dashboard workflows, docs, or public env vars.
+    description: Use when managing Zephyr version URLs, tags, environments, promotion, rollback, dashboard routing, or public environment overrides. SDK setup and Module Federation configuration belong to the installed zephyr-packages skills.
     tasks:
-      - Select the supported integration for an existing application's stack.
       - Explain version URLs, tags, environments, promotion, and rollback.
       - Configure public runtime values without treating them as secrets.
-    covers: [SDK selection, immutable versions, tags, environments, public runtime configuration]
-  - name: zephyr-module-federation
-    slug: zephyr-module-federation
-    domain: federation
-    description: Use when the user asks about zephyr:dependencies, hosts/remotes, Module Federation build order, remote resolution, cross-bundler remotes, or monorepo MF on Zephyr.
-    tasks:
-      - Configure host and remote dependency mappings alongside normal federation configuration.
-      - Resolve workspace dependencies and build remotes before their hosts.
-      - Diagnose container naming and mixed-bundler deployment mismatches.
-    covers: ['zephyr:dependencies', 'workspace:*', remote resolution, build order, naming]
-cross_references:
-  - from: zephyr-core
-    to: zephyr-module-federation
-    reason: Route host and remote deployment questions to their existing owner.
-  - from: zephyr-module-federation
-    to: zephyr-core
-    reason: Product concepts and environment operations remain platform guidance.
+      - Diagnose access, target selection, and pending routing updates.
+    covers: [immutable versions, tags, environments, promotion, rollback, public runtime configuration]
 gaps:
   - skill: zephyr-core
     question: SDK implementation changes need review in the owning package repository.
     context: This repository's Git history tracks its references, not external SDK source or live documentation.
     status: open
-  - skill: zephyr-module-federation
-    question: Fresh-agent discovery and native plugin update behavior have not been exercised in this batch.
-    context: Structural validation and generated manifests do not establish host activation or task correctness.
+  - skill: zephyr-core
+    question: The packaged zephyr-core in zephyr-packages shares this skill's name and overlaps on platform topics.
+    context: Agents with both installed see two zephyr-core entries in separate namespaces. Decide whether to rename one before the next release.
     status: open

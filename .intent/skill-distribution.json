@@ -6,26 +6,10 @@
     {
       "name": "zephyr-core",
       "path": "skills/zephyr-core/SKILL.md"
-    },
-    {
-      "name": "zephyr-module-federation",
-      "path": "skills/zephyr-module-federation/SKILL.md"
     }
   ],
   "install": {
-    "skills": [
-      "npx",
-      "skills",
-      "add",
-      "ZephyrCloudIO/skills",
-      "--full-depth",
-      "--skill",
-      "zephyr-core",
-      "zephyr-module-federation"
-    ],
-    "github": [
-      ["gh", "skill", "add", "ZephyrCloudIO/skills", "skills/zephyr-core/SKILL.md"],
-      ["gh", "skill", "add", "ZephyrCloudIO/skills", "skills/zephyr-module-federation/SKILL.md"]
-    ]
+    "skills": ["npx", "skills", "add", "ZephyrCloudIO/skills", "--full-depth", "--skill", "zephyr-core"],
+    "github": [["gh", "skill", "add", "ZephyrCloudIO/skills", "skills/zephyr-core/SKILL.md"]]
   }
 }

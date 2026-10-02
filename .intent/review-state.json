@@ -3,27 +3,26 @@
   "baseline": "e43112fe22ef7bb09f70526c75a320f061e753e3",
   "items": {
     "skill:skills/zephyr-core/SKILL.md": {
-      "fingerprint": "52ac11c76460ac6a88a2ca794244dbe1b72b18ef8e295d1b9b8ab14fabcd1bc2",
+      "fingerprint": "b8e58da0635ceca7091765649a356bb4f949f95a55a121ce87cb94ff4e8cb03b",
       "snapshot": {
-        "README.md": "5bf4bb06e050952c505d8e4743a00edba1ebfcb536cf3a3edb689a953cf6399f",
+        "README.md": "0e8bef989e2bd626c94a2e46c56f5e5403dbfa48703cd18522a3b679bd39e954",
         "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
-        "skills/zephyr-core/README.md": "29a583b6d94243789f36d07208ddfbf10d5b47d06ed6c9d6816277a3fa2c3668",
-        "skills/zephyr-core/SKILL.md": "b63c963aa0f43628ea239dec8a9b7410b530c8796bbbb9387a8bd00643d0231f",
-        "skills/zephyr-core/references/deployment-model.md": "ac1f8cf02f2f42443d21a096f277b4c7f8a60be99f7c7615130ef08afb203443",
-        "skills/zephyr-core/references/docs-map.md": "a47cebd2322d18b832f865eda82e03a857365903514ebd53b4e86f06efbff18a",
-        "skills/zephyr-core/references/env-vars.md": "6c4451b8e229b56e86d4a346bc0e268281365b0ef1f7a1f0e514d57c1d0a2c81",
-        "skills/zephyr-core/references/examples-resume.md": "2bdf17ddecd547a108d7f6b0b382106403d2763de58935dcddf84953838ceb74",
-        "skills/zephyr-core/references/sdk-setup.md": "b6643acd8c7d0ed820b58c9748e6215b5c57eeb94b006b1852e9ef177f26526f",
-        "skills/zephyr-core/references/troubleshooting.md": "1d42b001bb9087aef5cbffbda817a096fc5758718d71c0b9b9cb20c6218cb84f"
+        "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
+        "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
+        "skills/zephyr-core/references/deployment-model.md": "5e4662967e2e56f9aa51c154f5588d4f39fcf8b4bd5943a6fafe89558efa8e68",
+        "skills/zephyr-core/references/docs-map.md": "0d64e48fb52014c540e3c7aa265a39fff2c0807fdaddb69c0444ca708a4c939e",
+        "skills/zephyr-core/references/env-vars.md": "f3e0d73607e2c888fa29594b8bb46b0d6caeab05e7f969a3b128ddcc82f181e4",
+        "skills/zephyr-core/references/examples-resume.md": null,
+        "skills/zephyr-core/references/sdk-setup.md": null,
+        "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
       },
-      "head": "e43112fe22ef7bb09f70526c75a320f061e753e3",
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
       "outcome": "updated",
-      "reason": "Preserved the existing skill instructions and activation description as purpose; added a domain and local reference provenance, without rewriting SDK API guidance or promising cross-repository freshness.",
+      "reason": "Narrowed zephyr-core to platform workflows (versions, tags, environments, promotion, rollback, public overrides). Removed sdk-setup.md and examples-resume.md and every pointer to the retired federation skill; SDK setup now routes to the installed package's bundled skills.",
       "evidence": [
-        "The existing skill body and reference files are unchanged; frontmatter is additive.",
-        "Both selected directories and sibling links are retained in the repository exports.",
-        "Intent 0.5.0 validation passes; actionlint accepts the read-only SHA-pinned workflow.",
-        "Fresh-agent discovery, native host activation/update/removal, and live deployments are not tested in this adoption."
+        "No remaining reference in the repository links to sdk-setup.md, examples-resume.md, or the retired skill directory.",
+        "Intent validation passes for the remaining skill; all four distribution manifests list only ./skills/zephyr-core and the native plugin versions are 1.1.0.",
+        "Fresh-agent selection and native plugin update behavior remain unverified."
       ]
     },
     "skill:skills/zephyr-module-federation/SKILL.md": {
@@ -49,37 +48,125 @@
       ]
     },
     "planning:skills/_artifacts": {
-      "fingerprint": "166e995468f6b98db7cfbe94de85477a1e6884a97246a52dd8bf8cdb4e1f8f9c",
+      "fingerprint": "5c6aed7cc0102573233f9d7e08472bc830fed4375ed6ef7d1a946a82aece1cd7",
       "snapshot": {
-        "README.md": "5bf4bb06e050952c505d8e4743a00edba1ebfcb536cf3a3edb689a953cf6399f",
-        "skills/_artifacts/domain_map.yaml": "26f7886c1817ff029abc8353660b760aae5b2984950e0e07e923d0b5fc6c8de3",
-        "skills/_artifacts/skill_spec.md": "4cff4bb6899c0f20ca9445fb6acfa8bf30e0eb49ca992a5b28b225cb90f3dfb7",
-        "skills/_artifacts/skill_tree.yaml": "91750833eed6b9f5ae57d64b8481b3a7baff32d98687fc2675080244412507cf",
+        "README.md": "0e8bef989e2bd626c94a2e46c56f5e5403dbfa48703cd18522a3b679bd39e954",
+        "skills/_artifacts/domain_map.yaml": "ed06e18772a3ce07efa61d41968e4098488c45f16322639ab9adddc7658a1175",
+        "skills/_artifacts/skill_spec.md": "6b61b73f0467190b9005a39547510d6c8d9040b7d5cc398a38b6111f7c3a0278",
+        "skills/_artifacts/skill_tree.yaml": "b3c7a04a498f6f61389d5f9f4adddcfece6ea627e5327714873e797fc8c967b4",
         "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
-        "skills/zephyr-core/README.md": "29a583b6d94243789f36d07208ddfbf10d5b47d06ed6c9d6816277a3fa2c3668",
-        "skills/zephyr-core/SKILL.md": "b63c963aa0f43628ea239dec8a9b7410b530c8796bbbb9387a8bd00643d0231f",
-        "skills/zephyr-core/references/deployment-model.md": "ac1f8cf02f2f42443d21a096f277b4c7f8a60be99f7c7615130ef08afb203443",
-        "skills/zephyr-core/references/docs-map.md": "a47cebd2322d18b832f865eda82e03a857365903514ebd53b4e86f06efbff18a",
-        "skills/zephyr-core/references/env-vars.md": "6c4451b8e229b56e86d4a346bc0e268281365b0ef1f7a1f0e514d57c1d0a2c81",
-        "skills/zephyr-core/references/examples-resume.md": "2bdf17ddecd547a108d7f6b0b382106403d2763de58935dcddf84953838ceb74",
-        "skills/zephyr-core/references/sdk-setup.md": "b6643acd8c7d0ed820b58c9748e6215b5c57eeb94b006b1852e9ef177f26526f",
-        "skills/zephyr-core/references/troubleshooting.md": "1d42b001bb9087aef5cbffbda817a096fc5758718d71c0b9b9cb20c6218cb84f",
-        "skills/zephyr-module-federation/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
-        "skills/zephyr-module-federation/README.md": "5ab281a4d1ca1bd5541a979a1793f19442df4eede3044c42856b5c29c9fdfb9d",
-        "skills/zephyr-module-federation/SKILL.md": "6bc5892c649b8ecd1905892a12210ea5fa683c75b473a73fd45004b6a5ec2a9a",
-        "skills/zephyr-module-federation/references/docs-map.md": "60aac928ef74587a36a318ff6a1048e59e5f179c324464b214abe24f3fbda5f2",
-        "skills/zephyr-module-federation/references/examples.md": "39b1acd6671156c42b554d22701e4cfb270cea455cc1d2bb5096c3676d093bea",
-        "skills/zephyr-module-federation/references/gotchas.md": "b2d31d222369e4a1a587181882ceb19395d065b23726a793064f61853f7f95fa",
-        "skills/zephyr-module-federation/references/remote-resolution.md": "83bfa03e85025f87fa1e19eafa9a77008cfc0f9c95bb20ccec7c9ccc55be36df",
-        "skills/zephyr-module-federation/references/setup-patterns.md": "65dc176d4c8a2374328c9e8dfdcc9132b10942233757b957dcd6359e27711ef5"
+        "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
+        "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
+        "skills/zephyr-core/references/deployment-model.md": "5e4662967e2e56f9aa51c154f5588d4f39fcf8b4bd5943a6fafe89558efa8e68",
+        "skills/zephyr-core/references/docs-map.md": "0d64e48fb52014c540e3c7aa265a39fff2c0807fdaddb69c0444ca708a4c939e",
+        "skills/zephyr-core/references/env-vars.md": "f3e0d73607e2c888fa29594b8bb46b0d6caeab05e7f969a3b128ddcc82f181e4",
+        "skills/zephyr-core/references/examples-resume.md": null,
+        "skills/zephyr-core/references/sdk-setup.md": null,
+        "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b",
+        "skills/zephyr-module-federation/SKILL.md": null
       },
-      "head": "e43112fe22ef7bb09f70526c75a320f061e753e3",
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
       "outcome": "updated",
-      "reason": "Reconciled all three maintenance records for the two existing skills, explicitly selected both repository exports, retained their ownership, and documented cross-repository and host-validation limits.",
+      "reason": "Recorded the retirement and platform-only scope in skill_spec.md, removed the federation skill, domain, and cross-references from domain_map.yaml, and opened a gap for the zephyr-core name shared with the packaged guide.",
       "evidence": [
-        "skills/_artifacts/domain_map.yaml, skill_spec.md, and skill_tree.yaml cover the two existing skill directories.",
-        "Intent validation passes for both skills and all declared local reference mappings.",
-        "Generated Claude/Cursor identities, authors, versions, and unrelated plugin fields are preserved; native host and fresh-agent validation are not claimed."
+        "Intent maintainer sync reports no drift and zero authoring issues.",
+        "README Skills table lists only zephyr-core and points SDK and federation questions to installed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/LICENSE": {
+      "fingerprint": "c469b40ae635ed1f9e10c14437183aa78cf979ebfabe78955276f91f2cd62b33",
+      "snapshot": {
+        "skills/zephyr-module-federation/LICENSE": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/README.md": {
+      "fingerprint": "2e5fbe8cc4e68b34a406393e36d4b8d9daea615da9b09d5cdd79960dcb98e5bb",
+      "snapshot": {
+        "skills/zephyr-module-federation/README.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/SKILL.md": {
+      "fingerprint": "8384ef853517c04fe97ea66b9e69289e20f227b012437c7502d04b4a511663a4",
+      "snapshot": {
+        "skills/zephyr-module-federation/SKILL.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/docs-map.md": {
+      "fingerprint": "2f36e687dba872040145cd0c3fd73785ce16c852177728e6c9f5a3b4f9fa254c",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/docs-map.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/examples.md": {
+      "fingerprint": "cbca5ddadfbef5827946792365da008ca853c53764dd2a97165ce6f8f1aceeac",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/examples.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/gotchas.md": {
+      "fingerprint": "10997e98c65fc0e29ebdc4123740f325e52cf706e0580bdeec478941623fc9c0",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/gotchas.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/remote-resolution.md": {
+      "fingerprint": "69cce81779476c86dc470e0b1104ca10ad79a871b37559188dd0cf538405f459",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/remote-resolution.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/setup-patterns.md": {
+      "fingerprint": "21a05a6d011e746184a01d97a689624cb04d651cd02d89bcb9883b3361e858a1",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/setup-patterns.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
       ]
     }
   }

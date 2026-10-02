@@ -37,22 +37,14 @@ npx skills add https://github.com/ZephyrCloudIO/skills
 
 Clone this repo and copy the skill folders into the appropriate directory for your agent:
 
-| Agent        | Skill Directory              | Docs                                                                               |
-| ------------ | ---------------------------- | ---------------------------------------------------------------------------------- |
-| Claude Code  | `~/.claude/skills/`          | [docs](https://code.claude.com/docs/en/skills)                                     |
-| Cursor       | `~/.cursor/skills/`          | [docs](https://cursor.com/docs/context/skills)                                     |
-| OpenAI Codex | `~/.codex/skills/`           | [docs](https://developers.openai.com/codex/skills/)                                |
-| OpenCode     | `~/.config/opencode/skills/` | [docs](https://opencode.ai/docs/skills/)                                           |
-| Pi           | `~/.pi/agent/skills/`        | [docs](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#skills) |
+| Agent         | Skill                                                                                                      | Useful for |
+| ------------- | ---------------------------------------------------------------------------------------------------------- | ---------- |
+| `zephyr-core` | Version URLs, tags, environments, promotion, rollback, dashboard routing, and public environment overrides |
 
-## Skills
-
-Skills are contextual and auto-loaded based on your conversation. When a request matches a skill's triggers, the agent loads and applies the relevant skill to provide accurate, up-to-date guidance.
-
-| Skill                      | Useful for                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `zephyr-core`              | Zephyr setup, `with-zephyr`, SDK selection, versions, tags, environments, snapshot/version URLs, dashboard flows, and public env vars |
-| `zephyr-module-federation` | `zephyr:dependencies`, host/remote setup, remote resolution, mixed-bundler Module Federation, and monorepo MF workflows               |
+SDK setup, `with-zephyr`, and Module Federation guidance (`zephyr:dependencies`,
+hosts and remotes) ship inside every published Zephyr package. Install the
+package for your stack and load its bundled skills, for example
+`intent load vite-plugin-zephyr#zephyr-module-federation`.
 
 ## Maintaining skills
 
@@ -64,9 +56,9 @@ Inspect `pnpm skills:review --json`, review its actual source changes, and recor
 completed outcomes with the Intent maintainer workflow before running
 `pnpm skills:check`. Do not mark missing evidence as a successful review.
 
-The cumulative records are in `skills/_artifacts/`. Keep both existing skill
-directories selected for repository distribution so their sibling reference
-links continue to resolve. Setup and synchronization do not publish releases,
+The cumulative records are in `skills/_artifacts/`. Keep the skill directory
+selected for repository distribution so its reference links continue to
+resolve. Setup and synchronization do not publish releases,
 update consumer installations, or bump native plugin versions; bump those
 versions deliberately when releasing changed skill content.
 

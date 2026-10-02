@@ -45,3 +45,13 @@ release reports; it does not create pull requests or publish fixes.
   `metadata.purpose`, recorded the platform and federation tasks, and retained
   the existing installation routes. No SDK API guidance was migrated into this
   repository. Source-aware reviews cover local reference changes only.
+
+- 2026-10-02: Retired `zephyr-module-federation` and narrowed `zephyr-core` to
+  platform workflows: versions, tags, environments, promotion, rollback, and
+  public environment overrides. SDK selection, plugin setup, `with-zephyr`, and
+  Module Federation wiring now ship with every published package from
+  `ZephyrCloudIO/zephyr-packages`, where the guidance is versioned with the SDK
+  it describes. Removed `sdk-setup.md` and `examples-resume.md`, dropped the
+  federation skill from every distribution manifest, and bumped the native
+  plugin versions to 1.1.0. Existing installations keep their copy until users
+  update the plugin.

@@ -1,48 +1,29 @@
-# Troubleshooting
+# Platform troubleshooting
 
-Use this file for common Zephyr setup and build failures.
+Use this reference for access, existing versions, and routing targets. SDK
+installation and build failures belong to the installed package's skill.
 
-## First checks
+## Access mismatch
 
-- Confirm the stack is using the right SDK/plugin.
-- Confirm the project is a git repo with a remote, branch, and commit.
-- Confirm the user is authenticated and has access to the target app/org.
-- Confirm the Zephyr integration is attached to the actual build config being executed.
+Confirm the account, organization, application, and intended operation. Local
+login success does not establish authorization for a different application or
+organization. Report the actual denied operation without requesting or printing
+credentials.
 
-## Common failure classes
+## Unexpected version or target
 
-### Wrong plugin for the stack
+Confirm whether the user is inspecting a permanent version URL, a moving tag,
+or an environment. Inspect the target's current pointer and matching rules
+before recommending promotion or rollback.
 
-- Vite -> `vite-plugin-zephyr`
-- Rspack -> `zephyr-rspack-plugin`
-- Webpack -> `zephyr-webpack-plugin`
-- TanStack Start, Astro, Rspress, Nuxt, Nitro -> prefer their dedicated integration paths
+## Pending routing updates
 
-### Git context missing
+Version publication and mutable-target updates are different stages. Confirm
+the target state after a change; do not infer completed activation from a queued
+job or accepted request alone.
 
-Common symptoms:
+## Documentation
 
-- app identity cannot be resolved
-- build ID / auth / application UID errors
-- deployment metadata is incomplete
-
-### Auth/access mismatch
-
-Common symptoms:
-
-- login succeeds locally but deploy cannot write
-- CI token works for one org/app but not another
-- build accepts config but publish fails later
-
-### Docs drift to call out
-
-- If Rspack docs and examples disagree, prefer `zephyr-rspack-plugin` from the SDK picker and examples.
-- Public docs around status names have some drift; keep answers focused on immutable versions plus mutable routing targets.
-
-## Good error docs
-
-- Error index: `https://docs.zephyr-cloud.io/errors.md`
-- Git remote missing: `https://docs.zephyr-cloud.io/errors/ze10014.md`
-- Git config missing: `https://docs.zephyr-cloud.io/errors/ze10016.md`
-- Auth error: `https://docs.zephyr-cloud.io/errors/ze10018.md`
-- Build ID failure: `https://docs.zephyr-cloud.io/errors/ze10019.md`
+- Error index: https://docs.zephyr-cloud.io/errors.md
+- Tags and environments: https://docs.zephyr-cloud.io/features/tags-environments.md
+- Instant rollbacks: https://docs.zephyr-cloud.io/features/instant-rollbacks.md

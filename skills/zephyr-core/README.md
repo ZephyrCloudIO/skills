@@ -1,13 +1,8 @@
 # zephyr-core
 
-Skill for general Zephyr frontend setup and deployment workflows.
+Platform-only guidance for versions, tags, environments, promotion, rollback,
+dashboard routing, and public environment overrides.
 
-Includes:
-
-- `SKILL.md` for the main trigger and workflow
-- `references/sdk-setup.md` for plugin and codemod setup
-- `references/deployment-model.md` for versions, snapshots, tags, and environments
-- `references/env-vars.md` for `ZE_PUBLIC_*` and environment overrides
-- `references/examples-resume.md` for concrete starter examples
-- `references/docs-map.md` for docs links and `llms.txt`
-- `references/troubleshooting.md` for common setup issues
+SDK installation, build-plugin configuration, and Module Federation wiring are
+owned by zephyr-packages and bundled with every published package. They are not
+maintained in this repository.
