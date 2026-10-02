@@ -5,20 +5,29 @@ settings:
   excludeLinksFromLockfile: false
 
 importers:
-
   .:
     devDependencies:
+      '@tanstack/intent':
+        specifier: 0.5.0
+        version: 0.5.0
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
 
 packages:
+  '@tanstack/intent@0.5.0':
+    resolution:
+      { integrity: sha512-27zOOpQLfBTM5cQjqkASf6JH3jggMwr29UhK8dlAI1WP9rjzywJ87/I6meiH/khyPIFNRluh9Q8wlIVrpN4Jpg== }
+    engines: { node: '>=20.12.0' }
+    hasBin: true
 
   prettier@3.8.1:
-    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
-    engines: {node: '>=14'}
+    resolution:
+      { integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg== }
+    engines: { node: '>=14' }
     hasBin: true
 
 snapshots:
+  '@tanstack/intent@0.5.0': {}
 
   prettier@3.8.1: {}

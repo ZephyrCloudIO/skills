@@ -4,6 +4,11 @@ description: Use when the user asks about zephyr:dependencies, hosts/remotes, Mo
 license: Apache-2.0
 metadata:
   author: Zephyr Cloud IO
+  purpose: Use when the user asks about zephyr:dependencies, hosts/remotes, Module Federation build order, remote resolution, cross-bundler remotes, or monorepo MF on Zephyr.
+  domain: federation
+  type: core
+sources:
+  - ZephyrCloudIO/skills:**/skills/zephyr-module-federation/references/*.md
 ---
 
 # Zephyr Module Federation

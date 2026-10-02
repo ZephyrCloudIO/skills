@@ -4,6 +4,12 @@ description: Use when the user asks about Zephyr setup, with-zephyr, SDK selecti
 license: Apache-2.0
 metadata:
   author: Zephyr Cloud IO
+  purpose: Use when the user asks about Zephyr setup, with-zephyr, SDK selection, versions, tags, environments, snapshot/version URLs, dashboard workflows, docs, or public env vars.
+  domain: platform
+  type: core
+sources:
+  - ZephyrCloudIO/skills:**/skills/zephyr-core/references/*.md
+  - README.md
 ---
 
 # Zephyr Core

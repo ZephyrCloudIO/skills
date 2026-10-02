@@ -18,5 +18,6 @@
     "preview",
     "cloud",
     "applications"
-  ]
+  ],
+  "skills": ["./skills/zephyr-core", "./skills/zephyr-module-federation"]
 }
