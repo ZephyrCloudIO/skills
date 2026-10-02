@@ -218,14 +218,14 @@
       "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
     },
     "source:release-please-config.json": {
-      "fingerprint": "55908bebfc27fddab745e0681878a9ea6d688ecf1e3d794bdeeecf0d8c9e0375",
+      "fingerprint": "097a2f0054c7af39c8c0b3363b90c1d434b935255a9e10a1be7679a00a7b3fda",
       "snapshot": {
-        "release-please-config.json": "d9ea0ec91a75c8b9fe99e5d638f38c9c54fb7e0c5d6d5fee1a37062500f148c9"
+        "release-please-config.json": "2ed99bf0ba9980efb352f02087e378648e66737cd5ec771e405851cba8e09ff3"
       },
-      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
-      "outcome": "out-of-scope",
-      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
-      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
+      "head": "e764867cc1f412163a357f37610adbef8a67ee80",
+      "outcome": "no-change",
+      "reason": "Release-please configuration only: switch to the built-in changelog because the repository has no previous tag for GitHub-generated notes; skill guidance is unaffected.",
+      "evidence": ["Changed: release-please-config.json at e764867cc1f412163a357f37610adbef8a67ee80"]
     }
   }
 }
