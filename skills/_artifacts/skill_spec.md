@@ -73,3 +73,10 @@ experimental_sync` for skills bundled in Zephyr packages; it synced
   1.1.0 was reverted and the next `feat` release proposes it. The workflow
   mints the organization's workflow automation app token so the published
   release triggers the Intent release review.
+
+- 2026-10-02: Added `review.ignore` for `CHANGELOG.md` and
+  `.release-please-manifest.json` in `skill_tree.yaml`. release-please writes
+  both on every release pull request, and Intent's defaults already ignore the
+  plugin manifests, so release pull requests no longer fail Check Skills with
+  unmapped changes. Replaying the 1.1.0 release pull request's files on top of
+  this change leaves no pending review items.
