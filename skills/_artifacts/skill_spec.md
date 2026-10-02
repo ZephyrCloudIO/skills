@@ -55,3 +55,13 @@ release reports; it does not create pull requests or publish fixes.
   federation skill from every distribution manifest, and bumped the native
   plugin versions to 1.1.0. Existing installations keep their copy until users
   update the plugin.
+
+- 2026-10-02: Adopted Vercel's `skills` CLI as the primary cross-agent install
+  path and documented publication to skills.sh, which lists public repositories
+  from CLI install telemetry rather than a submission step. Added the
+  lockfile-pinned `skills` 1.7.0 and `pnpm skills:discover`, run in CI with
+  telemetry disabled, which fails unless the CLI discovers exactly the skills
+  in `.intent/skill-distribution.json`. Documented `npx skills
+experimental_sync` for skills bundled in Zephyr packages; it synced
+  `zephyr-core`, `zephyr-module-federation`, and `zephyr-vite` from a packed
+  `vite-plugin-zephyr` in a disposable consumer.

@@ -10,11 +10,13 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "skills:check": "intent maintainer check",
-    "skills:review": "intent maintainer review"
+    "skills:review": "intent maintainer review",
+    "skills:discover": "node scripts/verify-skills-sh.mjs"
   },
   "devDependencies": {
     "@tanstack/intent": "0.5.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "skills": "1.7.0"
   },
   "keywords": [
     "tanstack-intent"
