@@ -1,6 +1,6 @@
 {
   "name": "zephyr",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Skills for Zephyr Cloud: micro-frontends, preview deployments, version orchestration, MCP workflows, and platform tooling",
   "author": {
     "name": "Zephyr Cloud IO",
@@ -19,5 +19,5 @@
     "cloud",
     "applications"
   ],
-  "skills": ["./skills/zephyr-core", "./skills/zephyr-module-federation"]
+  "skills": ["./skills/zephyr-core"]
 }

@@ -10,14 +10,15 @@ skills:
       slug: zephyr-core,
       domain: platform,
       path: skills/zephyr-core/SKILL.md,
-      description: 'Use when the user asks about Zephyr setup, with-zephyr, SDK
-        selection, versions, tags, environments, snapshot/version URLs,
-        dashboard workflows, docs, or public env vars.',
+      description: 'Use when managing Zephyr version URLs, tags, environments,
+        promotion, rollback, dashboard routing, or public environment
+        overrides. SDK setup and Module Federation configuration belong to the
+        installed zephyr-packages skills.',
       sources: [ZephyrCloudIO/skills:**/skills/zephyr-core/references/*.md, README.md],
       requires: [],
-      purpose: 'Use when the user asks about Zephyr setup, with-zephyr, SDK selection,
-        versions, tags, environments, snapshot/version URLs, dashboard
-        workflows, docs, or public env vars.',
+      purpose: "Explain and operate Zephyr's immutable versions, mutable deployment
+        targets, dashboard workflows, and public environment overrides without
+        prescribing SDK configuration.",
     },
     {
       name: zephyr-module-federation,
@@ -32,6 +33,7 @@ skills:
       purpose: 'Use when the user asks about zephyr:dependencies, hosts/remotes,
         Module Federation build order, remote resolution, cross-bundler
         remotes, or monorepo MF on Zephyr.',
+      status: retired,
     },
   ]
 distribution:
@@ -40,4 +42,3 @@ distribution:
   name: zephyr
   skills:
     - zephyr-core
-    - zephyr-module-federation
