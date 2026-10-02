@@ -3,7 +3,6 @@
   "bootstrap-sha": "277f899bfa68c163840444347707a17d505f299e",
   "include-v-in-tag": true,
   "include-component-in-tag": false,
-  "changelog-type": "github",
   "changelog-sections": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Bug fixes" },
