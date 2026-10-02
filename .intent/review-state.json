@@ -44,12 +44,12 @@
       ]
     },
     "planning:skills/_artifacts": {
-      "fingerprint": "4a3a315cf7bf97bc21266186cfb8a8fdeaf802efdfcb600b567aff0fc8f0cabf",
+      "fingerprint": "4523e5b309e623590938e29547373de90e52e7dcd265fee825c1b855ebacdf64",
       "snapshot": {
         "README.md": "ee8446e1efaca2e4f4c6a43ca438c7686bb6717aa331dfe66ea13e2934f54b92",
         "skills/_artifacts/domain_map.yaml": "ed06e18772a3ce07efa61d41968e4098488c45f16322639ab9adddc7658a1175",
-        "skills/_artifacts/skill_spec.md": "f5e322026146d15907a7de91378753ead12c628b5995dffd33c3efb3b150ad6b",
-        "skills/_artifacts/skill_tree.yaml": "b3c7a04a498f6f61389d5f9f4adddcfece6ea627e5327714873e797fc8c967b4",
+        "skills/_artifacts/skill_spec.md": "d3626f6a0b10999c14bff3e3b54b7d1a60c9c1e13009b1265d05db38df12e163",
+        "skills/_artifacts/skill_tree.yaml": "b8b6ecec06717069c6a8b5a66f926a712c9910f81b65c1096d4be736e3653494",
         "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
         "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
         "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
@@ -60,10 +60,12 @@
         "skills/zephyr-core/references/sdk-setup.md": null,
         "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
       },
-      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "head": "43d45ff9757830142b5c811e4351ce1482c3a518",
       "outcome": "updated",
-      "reason": "Recorded release-please ownership of versions and the reverted manual 1.1.0 bump in skill_spec.md.",
-      "evidence": ["skill_spec.md distribution section and batch history describe release-please."]
+      "reason": "Added review.ignore for release-please's CHANGELOG.md and manifest so release pull requests pass Check Skills; recorded the decision in skill_spec.md.",
+      "evidence": [
+        "Changed: skills/_artifacts/skill_spec.md, skills/_artifacts/skill_tree.yaml at 43d45ff9757830142b5c811e4351ce1482c3a518"
+      ]
     },
     "source:skills/zephyr-module-federation/LICENSE": {
       "fingerprint": "c469b40ae635ed1f9e10c14437183aa78cf979ebfabe78955276f91f2cd62b33",

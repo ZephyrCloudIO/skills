@@ -42,3 +42,9 @@ distribution:
   name: zephyr
   skills:
     - zephyr-core
+review:
+  # release-please writes these on every release pull request; they carry no
+  # skill guidance. Package and plugin version bumps are already outside review.
+  ignore:
+    - CHANGELOG.md
+    - .release-please-manifest.json
