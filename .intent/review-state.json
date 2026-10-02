@@ -192,6 +192,18 @@
         "pnpm skills:discover passes against this branch and fails when the expected distribution names a skill the CLI cannot find.",
         "actionlint passes for the workflow; telemetry is disabled so CI runs do not count as installs."
       ]
+    },
+    "source:renovate.json": {
+      "fingerprint": "edf874ffcc5d713d611fb43b0fac0b349c3aa1332ae3c2d047cf216f1c36badc",
+      "snapshot": {
+        "renovate.json": "ebf88d52544e74a47a8e93b9b0449935b9a4b0db7ba62fb6dd94ae17b00fa57e"
+      },
+      "head": "c554cf2ae1f33679096515324ce2968ed606a86a",
+      "outcome": "out-of-scope",
+      "reason": "Renovate dependency-update configuration merged from main; it does not affect skill guidance or distribution.",
+      "evidence": [
+        "renovate.json only configures Renovate presets; no skill, reference, or distribution file changed."
+      ]
     }
   }
 }
