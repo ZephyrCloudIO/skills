@@ -3,9 +3,9 @@
   "baseline": "e43112fe22ef7bb09f70526c75a320f061e753e3",
   "items": {
     "skill:skills/zephyr-core/SKILL.md": {
-      "fingerprint": "6e9167d1d95ae0b7bee3066a9c54cc67bf46173c15fce074d308be60182cd828",
+      "fingerprint": "0bd2c4e5cb320852f9c5ee8018f96fdd2ddcb210ebc328ce4f070197939297aa",
       "snapshot": {
-        "README.md": "cf0b8d8dbcb97dc51d3b5b865bffc31013792e2f0e94d521d1659e60db155da7",
+        "README.md": "ee8446e1efaca2e4f4c6a43ca438c7686bb6717aa331dfe66ea13e2934f54b92",
         "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
         "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
         "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
@@ -16,13 +16,10 @@
         "skills/zephyr-core/references/sdk-setup.md": null,
         "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
       },
-      "head": "88c96acacf0ad0d765b36870af6f7807f3d651d5",
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
       "outcome": "no-change",
-      "reason": "README now documents skills CLI installation and skills.sh publication, and restores the Clone/Copy and Skills tables lost in the previous batch; zephyr-core guidance is unchanged.",
-      "evidence": [
-        "npx skills@1.7.0 add with --skill zephyr-core --agent claude-code cursor -y installed .agents/skills/zephyr-core in a disposable project; list showed it and remove deleted it.",
-        "pnpm skills:discover passes against this branch and fails when the expected distribution names a skill the CLI cannot find."
-      ]
+      "reason": "README adds a Releasing section for release-please; zephyr-core guidance is unchanged.",
+      "evidence": ["Only the maintainer release paragraph and new Releasing section changed in README.md."]
     },
     "skill:skills/zephyr-module-federation/SKILL.md": {
       "fingerprint": "73f1ee897c6a9eef69766bbd61b7885cb7e2b497b87cecdad6b02f49b6246bcf",
@@ -47,11 +44,11 @@
       ]
     },
     "planning:skills/_artifacts": {
-      "fingerprint": "4d71216178b202733b22758437ba71e5cdd54c35e854f7f4c34eb03f7e7d3b94",
+      "fingerprint": "4a3a315cf7bf97bc21266186cfb8a8fdeaf802efdfcb600b567aff0fc8f0cabf",
       "snapshot": {
-        "README.md": "cf0b8d8dbcb97dc51d3b5b865bffc31013792e2f0e94d521d1659e60db155da7",
+        "README.md": "ee8446e1efaca2e4f4c6a43ca438c7686bb6717aa331dfe66ea13e2934f54b92",
         "skills/_artifacts/domain_map.yaml": "ed06e18772a3ce07efa61d41968e4098488c45f16322639ab9adddc7658a1175",
-        "skills/_artifacts/skill_spec.md": "2be0efc670be11a2e7afbc57b42345c3b0004a4e911ccc9d02bf6e55f310508d",
+        "skills/_artifacts/skill_spec.md": "f5e322026146d15907a7de91378753ead12c628b5995dffd33c3efb3b150ad6b",
         "skills/_artifacts/skill_tree.yaml": "b3c7a04a498f6f61389d5f9f4adddcfece6ea627e5327714873e797fc8c967b4",
         "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
         "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
@@ -63,13 +60,10 @@
         "skills/zephyr-core/references/sdk-setup.md": null,
         "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
       },
-      "head": "88c96acacf0ad0d765b36870af6f7807f3d651d5",
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
       "outcome": "updated",
-      "reason": "Recorded the skills CLI and skills.sh distribution decision and the discovery check in skill_spec.md.",
-      "evidence": [
-        "skill_spec.md batch history describes the CLI adoption, telemetry-based listing, and experimental_sync evidence.",
-        "pnpm skills:discover passes against this branch and fails when the expected distribution names a skill the CLI cannot find."
-      ]
+      "reason": "Recorded release-please ownership of versions and the reverted manual 1.1.0 bump in skill_spec.md.",
+      "evidence": ["skill_spec.md distribution section and batch history describe release-please."]
     },
     "source:skills/zephyr-module-federation/LICENSE": {
       "fingerprint": "c469b40ae635ed1f9e10c14437183aa78cf979ebfabe78955276f91f2cd62b33",
@@ -202,6 +196,36 @@
       "outcome": "no-change",
       "reason": "Prettier formatting of renovate.json; Renovate configuration is unchanged and does not affect skills.",
       "evidence": ["Changed: renovate.json at 476fb08f8c1a2d27b85ae0840e76297ad821e493"]
+    },
+    "source:.github/workflows/release-please.yml": {
+      "fingerprint": "3b00cb33c91b05589a3b6f1ca86daa84ba56df9bcac9202a1b4703ae9b16f6a7",
+      "snapshot": {
+        ".github/workflows/release-please.yml": "0ed0cf00e30084b4f7aeaa763c6d05c0c50f378e016706e0111424f4b3ce4693"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "out-of-scope",
+      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
+      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
+    },
+    "source:.release-please-manifest.json": {
+      "fingerprint": "c41273ffe84a30cc49e4e2e1728b780d646997e8fc0387ce5c3492bf105bc1fb",
+      "snapshot": {
+        ".release-please-manifest.json": "2ae8018fa540b531f79940118826b9846a44a8e9db05eab71caa9923fdd04c56"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "out-of-scope",
+      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
+      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
+    },
+    "source:release-please-config.json": {
+      "fingerprint": "55908bebfc27fddab745e0681878a9ea6d688ecf1e3d794bdeeecf0d8c9e0375",
+      "snapshot": {
+        "release-please-config.json": "d9ea0ec91a75c8b9fe99e5d638f38c9c54fb7e0c5d6d5fee1a37062500f148c9"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "out-of-scope",
+      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
+      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
     }
   }
 }

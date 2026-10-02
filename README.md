@@ -106,9 +106,18 @@ completed outcomes with the Intent maintainer workflow before running
 
 The cumulative records are in `skills/_artifacts/`. Keep the skill directory
 selected for repository distribution so its reference links continue to
-resolve. Setup and synchronization do not publish releases,
-update consumer installations, or bump native plugin versions; bump those
-versions deliberately when releasing changed skill content.
+resolve. Setup and synchronization do not publish releases or update consumer
+installations.
+
+## Releasing
+
+[release-please](https://github.com/googleapis/release-please) manages
+versions. Merging Conventional Commits to `main` updates a release pull request
+that bumps `package.json` and both native plugin manifests
+(`.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json`) together and
+writes the changelog. Merging that pull request tags and publishes the GitHub
+release, which also runs the Intent release review in `check-skills.yml`. Do
+not edit plugin versions by hand.
 
 These repository skills own onboarding, product concepts, and cross-project
 deployment workflows. Prefer SDK-specific skills from the application's

@@ -33,10 +33,12 @@ Validation and metadata synchronization do not establish fresh-agent discovery,
 successful consumer deployments, or native host acceptance. Those checks remain
 explicit follow-ups rather than recorded passing results.
 
-Intent preserves plugin versions. Bump the authoritative native plugin versions
-when changed guidance is released. Setup and sync do not publish or update an
-installed consumer copy. CI validates pull requests and produces read-only
-release reports; it does not create pull requests or publish fixes.
+Intent preserves plugin versions; release-please owns them. Its release pull
+request bumps `package.json` and both native plugin manifests together from
+Conventional Commits, and the published release runs the read-only Intent
+review. Setup and sync do not publish or update an installed consumer copy.
+Intent CI validates pull requests and produces read-only release reports; it
+does not create pull requests or publish fixes.
 
 ## Coverage and batch history
 
@@ -51,9 +53,8 @@ release reports; it does not create pull requests or publish fixes.
   public environment overrides. SDK selection, plugin setup, `with-zephyr`, and
   Module Federation wiring now ship with every published package from
   `ZephyrCloudIO/zephyr-packages`, where the guidance is versioned with the SDK
-  it describes. Removed `sdk-setup.md` and `examples-resume.md`, dropped the
-  federation skill from every distribution manifest, and bumped the native
-  plugin versions to 1.1.0. Existing installations keep their copy until users
+  it describes. Removed `sdk-setup.md` and `examples-resume.md` and dropped the
+  federation skill from every distribution manifest. Existing installations keep their copy until users
   update the plugin.
 
 - 2026-10-02: Adopted Vercel's `skills` CLI as the primary cross-agent install
@@ -65,3 +66,10 @@ release reports; it does not create pull requests or publish fixes.
 experimental_sync` for skills bundled in Zephyr packages; it synced
   `zephyr-core`, `zephyr-module-federation`, and `zephyr-vite` from a packed
   `vite-plugin-zephyr` in a disposable consumer.
+
+- 2026-10-02: Adopted release-please for versioning. `release-please-config.json`
+  bumps `package.json` and both native plugin manifests together, starting from
+  1.0.0 at the current `main` (`bootstrap-sha`), so the earlier manual bump to
+  1.1.0 was reverted and the next `feat` release proposes it. The workflow
+  mints the organization's workflow automation app token so the published
+  release triggers the Intent release review.
