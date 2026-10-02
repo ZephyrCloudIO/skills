@@ -9,7 +9,8 @@
     {
       "description": "Skills for building and operating on Zephyr Cloud",
       "name": "zephyr",
-      "source": "./"
+      "source": "./",
+      "skills": ["./skills/zephyr-core"]
     }
   ]
 }

@@ -1,0 +1,25 @@
+library:
+  name: '@zephyrcloudio/skills'
+domains:
+  - name: Zephyr platform workflows
+    slug: platform
+    description: Operate immutable versions through mutable tags and environments.
+skills:
+  - name: zephyr-core
+    slug: zephyr-core
+    domain: platform
+    description: Use when managing Zephyr version URLs, tags, environments, promotion, rollback, dashboard routing, or public environment overrides. SDK setup and Module Federation configuration belong to the installed zephyr-packages skills.
+    tasks:
+      - Explain version URLs, tags, environments, promotion, and rollback.
+      - Configure public runtime values without treating them as secrets.
+      - Diagnose access, target selection, and pending routing updates.
+    covers: [immutable versions, tags, environments, promotion, rollback, public runtime configuration]
+gaps:
+  - skill: zephyr-core
+    question: SDK implementation changes need review in the owning package repository.
+    context: This repository's Git history tracks its references, not external SDK source or live documentation.
+    status: open
+  - skill: zephyr-core
+    question: The packaged zephyr-core in zephyr-packages shares this skill's name and overlaps on platform topics.
+    context: Agents with both installed see two zephyr-core entries in separate namespaces. Decide whether to rename one before the next release.
+    status: open

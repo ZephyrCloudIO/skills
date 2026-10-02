@@ -1,64 +1,54 @@
 ---
 name: zephyr-core
-description: Use when the user asks about Zephyr setup, with-zephyr, SDK selection, versions, tags, environments, snapshot/version URLs, dashboard workflows, docs, or public env vars.
+description: Use when managing Zephyr version URLs, tags, environments, promotion, rollback, dashboard routing, or public environment overrides. SDK setup and Module Federation configuration belong to the installed zephyr-packages skills.
 license: Apache-2.0
 metadata:
   author: Zephyr Cloud IO
+  purpose: Explain and operate Zephyr's immutable versions, mutable deployment targets, dashboard workflows, and public environment overrides without prescribing SDK configuration.
+  domain: platform
+  type: core
+sources:
+  - ZephyrCloudIO/skills:**/skills/zephyr-core/references/*.md
+  - README.md
 ---
 
-# Zephyr Core
+# Zephyr platform workflows
 
-Use this skill for general Zephyr frontend adoption and product-model questions. Keep answers short, accurate, and grounded in the canonical docs and examples.
+Start with the application, existing version, and environment the user is asking
+about. For SDK installation, build configuration, or host/remote wiring, use the
+skills bundled with the relevant installed package from zephyr-packages instead.
+If that package has no bundled guide yet, report the limitation and consult its
+matching README and types rather than recreating plugin instructions here.
 
-Zephyr is a build-integrated deployment platform for frontend and frontend-adjacent apps: it plugs into the build, publishes immutable versions, and lets users route traffic through tags and environments.
+## Version and routing model
 
-## What to cover
+A version is an immutable deployed build with a permanent URL. Tags and
+environments are mutable routing targets. Promotion and rollback generally
+change those pointers; do not tell the user to rebuild an existing version just
+to select it for another environment.
 
-- Start with the smallest useful answer.
-- Prefer Zephyr's user-facing model first: setup -> build -> version URL -> tags/envs -> promote/rollback.
-- Use repo/code-path nuance only when it clarifies behavior or corrects docs drift.
-- If the question is really about remote resolution, hosts/remotes, `zephyr:dependencies`, or multi-bundler Module Federation, switch to `../zephyr-module-federation/SKILL.md`.
-- First-time users usually need: a supported stack or fallback upload path, Zephyr auth/account access, and git metadata for repo/branch/commit identity.
+Read [deployment model](references/deployment-model.md) when distinguishing
+versions, snapshots, tags, environments, or asynchronous target updates.
+Confirm the intended application, target, and version before an authorized
+routing change. A request accepted by an API is not proof that every target has
+finished updating.
 
-## What Zephyr does
+## Public configuration
 
-- Zephyr integrates with the build and publishes immutable frontend versions.
-- Zephyr gives users permanent version URLs plus mutable tags and environments.
-- Zephyr can manage public runtime config overrides and deployment routing.
-- Zephyr does not replace the app's own framework/bundler config; it integrates into it.
-- Zephyr does not make public `ZE_PUBLIC_*` values secret.
+Read [environment overrides](references/env-vars.md) for public runtime values
+and per-environment dashboard settings. ZE*PUBLIC*\* values are client-visible,
+not secret storage. Do not expose credentials through those settings.
 
-## Core mental model
+## Access and diagnostics
 
-- Zephyr plugs into the app build through a bundler/framework integration.
-- A build creates an immutable version/snapshot and a permanent version URL.
-- Tags and environments are mutable pointers on top of immutable builds.
-- Promotion and rollback are mostly pointer changes, not rebuilds.
-- `ZE_PUBLIC_*` values can be captured at build time and overridden per environment later.
+Read [platform troubleshooting](references/troubleshooting.md) for account/app
+permissions, target selection, and pending routing changes. Use
+[documentation links](references/docs-map.md) when a deeper product explanation
+is needed. Do not turn a platform diagnosis into a plugin configuration rewrite.
 
-## Answer flow
+## Completion
 
-1. Identify the user's stack and deployment goal.
-2. Read `references/sdk-setup.md` for setup guidance.
-3. Read `references/deployment-model.md` for versions, snapshots, tags, envs, and dashboard workflows.
-4. Read `references/env-vars.md` if the task mentions env vars, runtime config, build once deploy everywhere, or `ZE_PUBLIC_*`.
-5. Read `references/examples-resume.md` when the user wants concrete starter patterns.
-6. Read `references/docs-map.md` when deeper docs links are useful.
-7. Read `references/troubleshooting.md` when setup/build/auth/git issues appear.
-
-## Source priorities
-
-- Canonical public docs: `https://docs.zephyr-cloud.io`
-- Raw docs path pattern: `https://docs.zephyr-cloud.io/<path>.md`
-- Docs index: `https://docs.zephyr-cloud.io/llms.txt`
-- Community help: `https://discord.gg/zephyrcloud`
-- Architecture docs: `https://docs.zephyr-cloud.io/reference/architecture.md`
-- Public docs source: `https://docs.zephyr-cloud.io`
-- Examples source: `https://github.com/ZephyrCloudIO/zephyr-examples`
-
-## Guardrails
-
-- Do not invent SDK names; verify against `references/sdk-setup.md`.
-- Do not blur version vs tag vs environment; explain the distinction plainly.
-- Do not present `ZE_PUBLIC_*` as secret storage. They are public client-facing values.
-- Call out docs drift when relevant instead of silently repeating conflicting details.
+Explain which immutable version or mutable target the user should use. For an
+actual change, verify the requested target's resulting state or report what is
+still pending. Keep version publication, tag resolution, and environment
+activation distinct.

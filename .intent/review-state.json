@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "baseline": "e43112fe22ef7bb09f70526c75a320f061e753e3",
+  "items": {
+    "skill:skills/zephyr-core/SKILL.md": {
+      "fingerprint": "0bd2c4e5cb320852f9c5ee8018f96fdd2ddcb210ebc328ce4f070197939297aa",
+      "snapshot": {
+        "README.md": "ee8446e1efaca2e4f4c6a43ca438c7686bb6717aa331dfe66ea13e2934f54b92",
+        "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
+        "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
+        "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
+        "skills/zephyr-core/references/deployment-model.md": "5e4662967e2e56f9aa51c154f5588d4f39fcf8b4bd5943a6fafe89558efa8e68",
+        "skills/zephyr-core/references/docs-map.md": "0d64e48fb52014c540e3c7aa265a39fff2c0807fdaddb69c0444ca708a4c939e",
+        "skills/zephyr-core/references/env-vars.md": "f3e0d73607e2c888fa29594b8bb46b0d6caeab05e7f969a3b128ddcc82f181e4",
+        "skills/zephyr-core/references/examples-resume.md": null,
+        "skills/zephyr-core/references/sdk-setup.md": null,
+        "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "no-change",
+      "reason": "README adds a Releasing section for release-please; zephyr-core guidance is unchanged.",
+      "evidence": ["Only the maintainer release paragraph and new Releasing section changed in README.md."]
+    },
+    "skill:skills/zephyr-module-federation/SKILL.md": {
+      "fingerprint": "73f1ee897c6a9eef69766bbd61b7885cb7e2b497b87cecdad6b02f49b6246bcf",
+      "snapshot": {
+        "skills/zephyr-module-federation/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
+        "skills/zephyr-module-federation/README.md": "5ab281a4d1ca1bd5541a979a1793f19442df4eede3044c42856b5c29c9fdfb9d",
+        "skills/zephyr-module-federation/SKILL.md": "6bc5892c649b8ecd1905892a12210ea5fa683c75b473a73fd45004b6a5ec2a9a",
+        "skills/zephyr-module-federation/references/docs-map.md": "60aac928ef74587a36a318ff6a1048e59e5f179c324464b214abe24f3fbda5f2",
+        "skills/zephyr-module-federation/references/examples.md": "39b1acd6671156c42b554d22701e4cfb270cea455cc1d2bb5096c3676d093bea",
+        "skills/zephyr-module-federation/references/gotchas.md": "b2d31d222369e4a1a587181882ceb19395d065b23726a793064f61853f7f95fa",
+        "skills/zephyr-module-federation/references/remote-resolution.md": "83bfa03e85025f87fa1e19eafa9a77008cfc0f9c95bb20ccec7c9ccc55be36df",
+        "skills/zephyr-module-federation/references/setup-patterns.md": "65dc176d4c8a2374328c9e8dfdcc9132b10942233757b957dcd6359e27711ef5"
+      },
+      "head": "e43112fe22ef7bb09f70526c75a320f061e753e3",
+      "outcome": "updated",
+      "reason": "Preserved the existing skill instructions and activation description as purpose; added a domain and local reference provenance, without rewriting SDK API guidance or promising cross-repository freshness.",
+      "evidence": [
+        "The existing skill body and reference files are unchanged; frontmatter is additive.",
+        "Both selected directories and sibling links are retained in the repository exports.",
+        "Intent 0.5.0 validation passes; actionlint accepts the read-only SHA-pinned workflow.",
+        "Fresh-agent discovery, native host activation/update/removal, and live deployments are not tested in this adoption."
+      ]
+    },
+    "planning:skills/_artifacts": {
+      "fingerprint": "4a3a315cf7bf97bc21266186cfb8a8fdeaf802efdfcb600b567aff0fc8f0cabf",
+      "snapshot": {
+        "README.md": "ee8446e1efaca2e4f4c6a43ca438c7686bb6717aa331dfe66ea13e2934f54b92",
+        "skills/_artifacts/domain_map.yaml": "ed06e18772a3ce07efa61d41968e4098488c45f16322639ab9adddc7658a1175",
+        "skills/_artifacts/skill_spec.md": "f5e322026146d15907a7de91378753ead12c628b5995dffd33c3efb3b150ad6b",
+        "skills/_artifacts/skill_tree.yaml": "b3c7a04a498f6f61389d5f9f4adddcfece6ea627e5327714873e797fc8c967b4",
+        "skills/zephyr-core/LICENSE": "65abda125624d2220f6f8f2a6a1c4ed4b6abc42cf493e43018eed14ab1e3bca0",
+        "skills/zephyr-core/README.md": "6e7d43051699c94c9e2d5e3a3692defe13a9d6ee810dbd844dd9d7b435b5be93",
+        "skills/zephyr-core/SKILL.md": "60df2cebda9510baeb223a57348032208cad94fd5f9bca06d60fb63af9a52e77",
+        "skills/zephyr-core/references/deployment-model.md": "5e4662967e2e56f9aa51c154f5588d4f39fcf8b4bd5943a6fafe89558efa8e68",
+        "skills/zephyr-core/references/docs-map.md": "0d64e48fb52014c540e3c7aa265a39fff2c0807fdaddb69c0444ca708a4c939e",
+        "skills/zephyr-core/references/env-vars.md": "f3e0d73607e2c888fa29594b8bb46b0d6caeab05e7f969a3b128ddcc82f181e4",
+        "skills/zephyr-core/references/examples-resume.md": null,
+        "skills/zephyr-core/references/sdk-setup.md": null,
+        "skills/zephyr-core/references/troubleshooting.md": "e5bfad4a2d06a46396381bfb100b94dda7a49b5e7b445126b6ee43e1430daf0b"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "updated",
+      "reason": "Recorded release-please ownership of versions and the reverted manual 1.1.0 bump in skill_spec.md.",
+      "evidence": ["skill_spec.md distribution section and batch history describe release-please."]
+    },
+    "source:skills/zephyr-module-federation/LICENSE": {
+      "fingerprint": "c469b40ae635ed1f9e10c14437183aa78cf979ebfabe78955276f91f2cd62b33",
+      "snapshot": {
+        "skills/zephyr-module-federation/LICENSE": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/README.md": {
+      "fingerprint": "2e5fbe8cc4e68b34a406393e36d4b8d9daea615da9b09d5cdd79960dcb98e5bb",
+      "snapshot": {
+        "skills/zephyr-module-federation/README.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/SKILL.md": {
+      "fingerprint": "8384ef853517c04fe97ea66b9e69289e20f227b012437c7502d04b4a511663a4",
+      "snapshot": {
+        "skills/zephyr-module-federation/SKILL.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/docs-map.md": {
+      "fingerprint": "2f36e687dba872040145cd0c3fd73785ce16c852177728e6c9f5a3b4f9fa254c",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/docs-map.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/examples.md": {
+      "fingerprint": "cbca5ddadfbef5827946792365da008ca853c53764dd2a97165ce6f8f1aceeac",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/examples.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/gotchas.md": {
+      "fingerprint": "10997e98c65fc0e29ebdc4123740f325e52cf706e0580bdeec478941623fc9c0",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/gotchas.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/remote-resolution.md": {
+      "fingerprint": "69cce81779476c86dc470e0b1104ca10ad79a871b37559188dd0cf538405f459",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/remote-resolution.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:skills/zephyr-module-federation/references/setup-patterns.md": {
+      "fingerprint": "21a05a6d011e746184a01d97a689624cb04d651cd02d89bcb9883b3361e858a1",
+      "snapshot": {
+        "skills/zephyr-module-federation/references/setup-patterns.md": null
+      },
+      "head": "0dc383b7af4e4948b8823e4233a684b049067582",
+      "outcome": "out-of-scope",
+      "reason": "Deleted as part of retiring zephyr-module-federation from this repository.",
+      "evidence": [
+        "Retired with zephyr-module-federation; the guidance now ships with every published package from ZephyrCloudIO/zephyr-packages (canonical skills/zephyr-module-federation), where verify-package-skills confirms it is discoverable in all 23 packed packages."
+      ]
+    },
+    "source:.github/workflows/skills-sh.yml": {
+      "fingerprint": "2d39c28a0a5be17b71992b36d6537c745d4581570b1e8d92cbaeeb1fcbcfbd62",
+      "snapshot": {
+        ".github/workflows/skills-sh.yml": "35bb540c8e111dc71944848a251ee335aec88276785c72de32ea5f4485ae1947"
+      },
+      "head": "88c96acacf0ad0d765b36870af6f7807f3d651d5",
+      "outcome": "out-of-scope",
+      "reason": "skills.sh discovery tooling; it does not change skill guidance.",
+      "evidence": [
+        "pnpm skills:discover passes against this branch and fails when the expected distribution names a skill the CLI cannot find.",
+        "actionlint passes for the workflow; telemetry is disabled so CI runs do not count as installs."
+      ]
+    },
+    "source:scripts/verify-skills-sh.mjs": {
+      "fingerprint": "421394695117eca7f49020961b753426b8ff12b829b52e8e060deb1b8e24d0fa",
+      "snapshot": {
+        "scripts/verify-skills-sh.mjs": "ed723b2b6d0ddd1e2b398071e2d717c101d8af24d5af1427d02e23804f8e8e86"
+      },
+      "head": "88c96acacf0ad0d765b36870af6f7807f3d651d5",
+      "outcome": "out-of-scope",
+      "reason": "skills.sh discovery tooling; it does not change skill guidance.",
+      "evidence": [
+        "pnpm skills:discover passes against this branch and fails when the expected distribution names a skill the CLI cannot find.",
+        "actionlint passes for the workflow; telemetry is disabled so CI runs do not count as installs."
+      ]
+    },
+    "source:renovate.json": {
+      "fingerprint": "2ac652d174cd30b127eb609557806594093872af8e0c0bc96f413f98a02fca72",
+      "snapshot": {
+        "renovate.json": "3c38bc714378274e2293e3994b36a340b060ed97f54449d7fdd220a3bb3bacb0"
+      },
+      "head": "476fb08f8c1a2d27b85ae0840e76297ad821e493",
+      "outcome": "no-change",
+      "reason": "Prettier formatting of renovate.json; Renovate configuration is unchanged and does not affect skills.",
+      "evidence": ["Changed: renovate.json at 476fb08f8c1a2d27b85ae0840e76297ad821e493"]
+    },
+    "source:.github/workflows/release-please.yml": {
+      "fingerprint": "3b00cb33c91b05589a3b6f1ca86daa84ba56df9bcac9202a1b4703ae9b16f6a7",
+      "snapshot": {
+        ".github/workflows/release-please.yml": "0ed0cf00e30084b4f7aeaa763c6d05c0c50f378e016706e0111424f4b3ce4693"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "out-of-scope",
+      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
+      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
+    },
+    "source:.release-please-manifest.json": {
+      "fingerprint": "c41273ffe84a30cc49e4e2e1728b780d646997e8fc0387ce5c3492bf105bc1fb",
+      "snapshot": {
+        ".release-please-manifest.json": "2ae8018fa540b531f79940118826b9846a44a8e9db05eab71caa9923fdd04c56"
+      },
+      "head": "88cbcc87889c22cfd1c7a9b1257768dea3b86a05",
+      "outcome": "out-of-scope",
+      "reason": "Release automation configuration; it does not change skill guidance or distribution selection.",
+      "evidence": ["actionlint passes; release-please bumps package.json and both plugin manifests."]
+    },
+    "source:release-please-config.json": {
+      "fingerprint": "097a2f0054c7af39c8c0b3363b90c1d434b935255a9e10a1be7679a00a7b3fda",
+      "snapshot": {
+        "release-please-config.json": "2ed99bf0ba9980efb352f02087e378648e66737cd5ec771e405851cba8e09ff3"
+      },
+      "head": "e764867cc1f412163a357f37610adbef8a67ee80",
+      "outcome": "no-change",
+      "reason": "Release-please configuration only: switch to the built-in changelog because the repository has no previous tag for GitHub-generated notes; skill guidance is unaffected.",
+      "evidence": ["Changed: release-please-config.json at e764867cc1f412163a357f37610adbef8a67ee80"]
+    }
+  }
+}
