@@ -194,16 +194,14 @@
       ]
     },
     "source:renovate.json": {
-      "fingerprint": "edf874ffcc5d713d611fb43b0fac0b349c3aa1332ae3c2d047cf216f1c36badc",
+      "fingerprint": "2ac652d174cd30b127eb609557806594093872af8e0c0bc96f413f98a02fca72",
       "snapshot": {
-        "renovate.json": "ebf88d52544e74a47a8e93b9b0449935b9a4b0db7ba62fb6dd94ae17b00fa57e"
+        "renovate.json": "3c38bc714378274e2293e3994b36a340b060ed97f54449d7fdd220a3bb3bacb0"
       },
-      "head": "c554cf2ae1f33679096515324ce2968ed606a86a",
-      "outcome": "out-of-scope",
-      "reason": "Renovate dependency-update configuration merged from main; it does not affect skill guidance or distribution.",
-      "evidence": [
-        "renovate.json only configures Renovate presets; no skill, reference, or distribution file changed."
-      ]
+      "head": "476fb08f8c1a2d27b85ae0840e76297ad821e493",
+      "outcome": "no-change",
+      "reason": "Prettier formatting of renovate.json; Renovate configuration is unchanged and does not affect skills.",
+      "evidence": ["Changed: renovate.json at 476fb08f8c1a2d27b85ae0840e76297ad821e493"]
     }
   }
 }
