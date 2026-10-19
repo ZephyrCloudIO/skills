@@ -38,23 +38,6 @@ npx skills remove zephyr-core
 Project installs are written to `.agents/skills/` and linked into each selected
 agent's skill directory; pass `--copy` to copy the files instead.
 
-### Skills bundled with Zephyr packages
-
-SDK setup, `with-zephyr`, and Module Federation guidance (`zephyr:dependencies`,
-hosts and remotes) ship inside every published Zephyr package, versioned with the
-SDK they describe. Each plugin also ships a dedicated skill, such as
-`zephyr-vite`, `zephyr-rspack`, or `zephyr-metro`. After installing your Zephyr
-package, link its bundled skills into your agents with:
-
-```bash
-npx skills experimental_sync
-```
-
-This command is experimental in the skills CLI. [TanStack Intent](https://github.com/TanStack/intent)
-users can instead load bundled skills with `intent load <package>#<skill>`, for
-example `intent load vite-plugin-zephyr#zephyr-vite`. Bundled skills require a
-Zephyr package release newer than 1.4.2.
-
 ### Claude Code
 
 Install using the [plugin marketplace](https://code.claude.com/docs/en/discover-plugins#add-from-github):
@@ -90,44 +73,44 @@ Clone this repo and copy the skill folders into the appropriate directory for yo
 
 Skills are contextual and auto-loaded based on your conversation. When a request matches a skill's triggers, the agent loads and applies the relevant skill to provide accurate, up-to-date guidance.
 
-| Skill         | Useful for                                                                                                 |
-| ------------- | ---------------------------------------------------------------------------------------------------------- |
-| `zephyr-core` | Version URLs, tags, environments, promotion, rollback, dashboard routing, and public environment overrides |
+| Skill                      | Useful for                                                                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `zephyr-core`              | Adding Zephyr to an app, configuring its bundler or framework integration, versions, tags, environments, and rollback |
+| `zephyr-module-federation` | Hosts, remotes, `zephyr:dependencies`, and remote resolution                                                          |
+| `zephyr-cli`               | Publishing build output with `ze-cli` when there is no bundler integration                                            |
+| `create-zephyr-apps`       | Scaffolding a new Zephyr project                                                                                      |
+
+Most projects need only `zephyr-core`. Add `zephyr-module-federation` if the
+application uses Module Federation.
+
+`zephyr-core` has a guide for every integration in
+[`skills/zephyr-core/references/integrations/`](skills/zephyr-core/references/integrations):
+Vite, TanStack Start, Vinext, webpack, Rspack, Rsbuild, Modern.js, Rspress,
+Rollup, Rolldown, Parcel, Astro, Nuxt, Metro, and Re.Pack. The agent reads only
+the guide that matches the project's stack.
 
 ## Maintaining skills
 
-Use the lockfile-pinned Intent release with `pnpm install --frozen-lockfile`.
-Run `pnpm exec intent maintainer status`, update the affected guidance and task
-coverage, then run `pnpm exec intent maintainer sync`.
+Each skill lives in `skills/<name>/SKILL.md`. Integration guides live in
+`skills/zephyr-core/references/integrations/<stack>.md` and are listed in the
+`zephyr-core` routing table. When a change in
+[zephyr-packages](https://github.com/ZephyrCloudIO/zephyr-packages) alters a
+package's setup, options, or behavior, update its guide here.
 
-Inspect `pnpm skills:review --json`, review its actual source changes, and record
-completed outcomes with the Intent maintainer workflow before running
-`pnpm skills:check`. Do not mark missing evidence as a successful review.
-
-The cumulative records are in `skills/_artifacts/`. Keep the skill directory
-selected for repository distribution so its reference links continue to
-resolve. Setup and synchronization do not publish releases or update consumer
-installations.
+Keep frontmatter to the Agent Skills fields (`name`, `description`, `license`,
+`compatibility`, `metadata`, `allowed-tools`) and keep links inside the skill
+directory. Run `pnpm skills:check` and `pnpm skills:discover` before opening a
+pull request; CI runs both.
 
 ## Releasing
 
 [release-please](https://github.com/googleapis/release-please) manages
 versions. Merging Conventional Commits to `main` updates a release pull request
-that bumps `package.json` and both native plugin manifests
-(`.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json`) together and
-writes the changelog. Merging that pull request tags and publishes the GitHub
-release, which also runs the Intent release review in `check-skills.yml`. Do
-not edit plugin versions by hand.
-
-These repository skills own onboarding, product concepts, and cross-project
-deployment workflows. Prefer SDK-specific skills from the application's
-installed packages for configuration and version-dependent behavior. Intent
-consumers select trusted packages in `intent.skills` and load their guidance
-with `intent list` and `intent load <package>#<skill>`.
-
-CI has read-only validation and review jobs pinned to the Intent release commit.
-It does not open review pull requests or publish fixes. Native host activation
-and fresh-agent task quality are separate checks from structural validation.
+that bumps `package.json` and the native plugin manifests
+(`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, and
+`.cursor-plugin/plugin.json`) together and writes the changelog. Merging that
+pull request tags and publishes the GitHub release. Do not edit plugin versions
+by hand.
 
 ## Publishing to skills.sh
 
@@ -139,12 +122,12 @@ discoverable by `npx skills add ZephyrCloudIO/skills`:
 - Keep each skill at `skills/<name>/SKILL.md` with `name` and `description`
   frontmatter, and keep the repository public.
 - Run `pnpm skills:discover`. It runs the lockfile-pinned CLI with telemetry
-  disabled and fails unless the CLI discovers exactly the skills selected in
-  `.intent/skill-distribution.json`. CI runs it on every pull request.
+  disabled and fails unless the CLI discovers exactly the skills in `skills/`.
+  CI runs it on every pull request.
 - After merging, the next `npx skills add ZephyrCloudIO/skills` install
   publishes the change; installs and updates refresh the listing. Install
-  counts for a removed skill, such as `zephyr-module-federation`, may remain on
-  skills.sh until the directory drops it.
+  counts for a removed skill may remain on skills.sh until the directory drops
+  it.
 
 ## Resources
 
