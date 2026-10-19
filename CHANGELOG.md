@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ZephyrCloudIO/skills/compare/v1.1.0...v1.2.0) (2026-10-19)
+
+
+### Features
+
+* **skills:** bring Zephyr SDK skills back from zephyr-packages ([#8](https://github.com/ZephyrCloudIO/skills/issues/8)) ([c27cea5](https://github.com/ZephyrCloudIO/skills/commit/c27cea531872516ee755bb7060c1be41fa90c3a6))
+
 ## [1.1.0](https://github.com/ZephyrCloudIO/skills/compare/v1.0.0...v1.1.0) (2026-10-02)
 
 
