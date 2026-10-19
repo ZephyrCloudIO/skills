@@ -1,48 +1,33 @@
-# check-skills.yml — copied by `intent maintainer setup` into .github/workflows/
-#
-# Validates intent skills and recorded source reviews on pull requests. After a
-# release or manual run, writes a read-only report when guidance needs review.
-# This repository deliberately keeps analysis read-only and has no publisher job.
-#
-# The steps live in TanStack/intent's reusable workflows, pinned below to the
-# commit of the Intent release that copied this file. Dependabot and Renovate
-# bump the pin like any other action reference; a `github-actions` entry in
-# .github/dependabot.yml is enough. Each job grants only the permissions its
-# workflow needs, and Intent runs from this repository's own lockfile-pinned
-# copy of @tanstack/intent.
-#
-# intent-workflow-version: 6
-#
-# Template variables (replaced by `intent setup`):
-#   @zephyrcloudio/skills — e.g. @tanstack/query or my-workspace workspace
-#   3cf6c146aa36288fba6bc5b7190413d878706756 # v0.5.0 — the immutable commit packaged with this Intent release
+# Validates skill frontmatter, reference links, the zephyr-core routing table,
+# and plugin manifests on every pull request.
 
 name: Check Skills
 
 on:
   pull_request: {}
-  release:
-    types: [published]
   workflow_dispatch: {}
 
 permissions: {}
 
 jobs:
   validate:
-    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
     permissions:
       contents: read
-    uses: TanStack/intent/.github/workflows/check-skills.yml@3cf6c146aa36288fba6bc5b7190413d878706756 # v0.5.0
-    with:
-      artifacts: 'skills/_artifacts'
-      repair: true
-      node-version: '24.20.0'
-
-  review:
-    if: github.event_name != 'pull_request'
-    permissions:
-      contents: read
-    uses: TanStack/intent/.github/workflows/review-skills.yml@3cf6c146aa36288fba6bc5b7190413d878706756 # v0.5.0
-    with:
-      package-label: '@zephyrcloudio/skills'
-      node-version: '24.20.0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
+        with:
+          run_install: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: '24.20.0'
+          cache: pnpm
+      - name: Install locked tooling without lifecycle scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check formatting
+        run: pnpm format:check
+      - name: Validate skills
+        run: pnpm skills:check

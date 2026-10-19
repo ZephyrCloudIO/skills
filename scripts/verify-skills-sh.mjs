@@ -2,12 +2,14 @@
 // repository distributes. Listings on skills.sh come from `npx skills add`
 // installs, so a skill the CLI cannot discover cannot be installed or listed.
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const distribution = JSON.parse(readFileSync(path.join(root, '.intent/skill-distribution.json'), 'utf8'));
-const expected = distribution.skills.map((skill) => skill.name).sort();
+const expected = readdirSync(path.join(root, 'skills'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && existsSync(path.join(root, 'skills', entry.name, 'SKILL.md')))
+  .map((entry) => entry.name)
+  .sort();
 
 const cli = path.join(root, 'node_modules/skills/bin/cli.mjs');
 const result = spawnSync(process.execPath, [cli, 'add', root, '--list'], {

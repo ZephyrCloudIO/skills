@@ -10,7 +10,12 @@
       "description": "Skills for building and operating on Zephyr Cloud",
       "name": "zephyr",
       "source": "./",
-      "skills": ["./skills/zephyr-core"]
+      "skills": [
+        "./skills/create-zephyr-apps",
+        "./skills/zephyr-cli",
+        "./skills/zephyr-core",
+        "./skills/zephyr-module-federation"
+      ]
     }
   ]
 }
