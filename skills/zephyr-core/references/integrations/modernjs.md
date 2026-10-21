@@ -62,11 +62,13 @@ client and server compilers share one Zephyr engine and publication. The
 compiler-array integration can apply `snapshotType` and `entrypoint`.
 Client-only builds use the same array integration.
 
-The matching Rspack integration distinguishes an application base from a
-compiler's output-directory prefix. A client public path `/` and a server
-public path `/bundles/`, with server assets under `bundles`, both describe the
-root application. Explicit HTML/plugin application bases retain priority. Do
-not change the application's route base to match its server output folder.
+Modern.js's coordinated integration uses the finalized client configuration's
+application base for its server compiler too. The existing HTML-base and
+public-path detection still applies to the client; server public paths such as
+`/bundles/` describe compiler output locations. Actual public paths are not
+rewritten, and generic Rspack/Webpack integrations keep their existing base
+detection. Do not change the application's route base to match its server
+output folder.
 
 Earlier implementations wrap each `modifyRspackConfig` call separately. Each
 config gets its own engine and publication, and `snapshotType` and `entrypoint`
