@@ -34,12 +34,15 @@ Zephyr derives application identity from them.
 | `ze-cli deploy <dir>`      | The output already exists in a known directory             |
 | `ze-cli watch <dir>`       | Iterating on TAP mini-app output only (`--target tap-app`) |
 | `ze-cli doctor [dir]`      | Inspecting readiness without installing, building, or auth |
+| `ze-cli doctor --online`   | Also checking that Zephyr is reachable and the token works |
 
 ```bash
 ze-cli pnpm build
 ze-cli deploy ./dist
 ze-cli deploy ./dist --ssr
 ze-cli doctor . --format json
+ze-cli doctor . --online --format json
+ZE_DISABLED=true ze-cli pnpm build
 ```
 
 For the default run command, put `ze-cli` options before the build command;
@@ -80,6 +83,15 @@ place credentials in `ZE_PUBLIC_*` values, which are client-visible.
   plugin; that publishes twice.
 - Do not use `ze-cli watch` for web development servers; doctor reports this as
   `ZD0501`.
+- `doctor --online` sends read-only requests to Zephyr, each with its own limit
+  (`--timeout`, default 5000 ms). Its JSON has `schemaVersion` `1.1.0` and an
+  `online` object. Branch on finding codes: `ZD0701`-`ZD0704` Zephyr cannot be
+  reached or is down (`retry_later`), `ZD0705`-`ZD0707` token problems
+  (`refresh_credentials` or `check_permissions`), `ZD0709`-`ZD0713` application
+  configuration, `ZD0714`-`ZD0715` edge URL, `ZD0716` invalid `ZE_API` or `ZE_API_GATE`. Exit codes stay `0`-`3`.
+- `ZE_DISABLED=true` makes `run`, `deploy` and `watch` skip Zephyr: the build runs,
+  nothing is deployed, and no token is needed. `deploy --format json` then prints
+  `{"skipped":true,"reason":"ZE_DISABLED"}`. Never use it to hide a failed deploy.
 - Branch on doctor's `status`, `exitCode`, and finding `code`, not message text.
   Doctor exits `0` when healthy, `1` with findings, `2` for an invalid project
   path or manifest, and `3` when the scan cannot complete. Its deepest checks

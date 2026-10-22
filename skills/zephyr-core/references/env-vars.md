@@ -2,6 +2,21 @@
 
 Use this file when the user asks about `ZE_PUBLIC_*`, runtime config, build once deploy everywhere, or per-environment variable overrides.
 
+## Build switches
+
+Use these when the user asks how to fail a build on a Zephyr error, or how to build without Zephyr.
+
+| Variable        | Effect                                                                                                         |
+| --------------- | -------------------------------------------------------------------------------------------------------------- |
+| `ZE_FAIL_BUILD` | `true` makes a Zephyr failure fail the build. Otherwise the failure is logged and the build continues.         |
+| `ZE_DISABLED`   | `true` skips Zephyr. The bundle is built and is not deployed. No request, no token, no git information needed. |
+
+- `ZE_DISABLED=true` works in the webpack, rspack, rsbuild (and Modern.js) and Vite plugins and in `ze-cli run`, `deploy` and `watch`. Each prints `The bundle is built. The bundle is not deployed. Zephyr is disabled (ZE_DISABLED).`
+- Only the exact value `true` counts. It never turns on by itself, and it is not the fail-open behavior after an outage (there Zephyr is still contacted).
+- Do not suggest it to hide a failing deploy. Use it for a deliberate local, fork or outage build.
+- Other integrations (rollup, rolldown, parcel, metro, repack, astro, nuxt, rspress, TanStack Start, vinext) do not read it yet.
+- With Vite, skip mode also leaves out the Zephyr Module Federation runtime plugin and `ZE_PUBLIC_*` rewrites.
+
 ## Core rule
 
 - `ZE_PUBLIC_*` variables are public client-facing values captured at build time.
