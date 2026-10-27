@@ -73,10 +73,12 @@ array must resolve to the same base, or publication fails.
 
 ## Failure semantics
 
-For a single config, configuration and publication errors are logged and the
-Rspack build continues. Set `ZE_FAIL_BUILD=true` when the build must fail on
-them. For arrays, a configuration error rejects the wrapper and releases the
-shared build instead of waiting for a compiler that will never report.
+Configuration and publication errors, including an unreachable Zephyr, are logged
+and the Rspack build continues. Set `ZE_FAIL_BUILD=true` (or the `failBuild`
+option) when the build must fail on them. This is the same for a single config
+and for an array. For an array, a configuration error releases the shared build
+instead of waiting for a compiler that will never report, removes the Zephyr
+plugins from every config, and then follows that setting.
 
 `hooks.onDeployComplete(info)` runs only after a successful publication with a
 version URL; `info.url` is that URL. The exported `onDeploymentDone()` promise
