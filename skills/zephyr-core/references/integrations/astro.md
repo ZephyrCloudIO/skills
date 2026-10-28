@@ -39,15 +39,30 @@ TAP packages. Read [publication details](astro-publication.md) before
 setting them. The shared `zephyr-module-federation` guide covers the
 cross-project host and remote model.
 
-## Static output only
+## Static output and Cloudflare SSR preparation
 
-The integration uploads the directory Astro passes to `astro:build:done` and
-never sends a server entrypoint or snapshot type. That directory is the client
-output, so it publishes a static site. With `output: 'server'` or an adapter,
-only client and prerendered files are published; on-demand routes, API
-endpoints, and middleware are not. Do not present this integration as an SSR
-deployment path, and do not remove the user's adapter to make it fit without
-authorization; report the limitation instead.
+Static output continues to use Astro's build asset list. The Cloudflare SSR
+preparation implementation detects `output: 'server'` with the
+`@astrojs/cloudflare` adapter, follows `.wrangler/deploy/config.json`, and
+collects the complete generated server and client output. It sends an SSR
+entrypoint and secret-free binding, asset, compatibility, and cron requirements.
+It excludes generated Wrangler configuration and rejects missing modules,
+symlinks, overlapping output directories, and unsupported bindings.
+
+The selected Zephyr application configuration must advertise
+`capabilities.cloudflareDeployment: 1` before transport. Without it, the build
+fails before any asset upload. This protocol is preparation for the managed
+runtime implementation; it does not establish that the current managed runtime
+can host EmDash or other apps requiring D1/R2, sessions, Images, and scheduled
+events. Do not add the capability locally to bypass the check, remove required
+bindings, or advertise a live SSR deployment based only on a successful build.
+
+Use `ZE_DISABLED=true` for local-only output verification. The exported
+`collectCloudflareOutput(projectRoot)` inspects a completed build without
+credentials or network access. The `examples/astro-emdash` fixture uses
+published EmDash packages and preserves its native admin/API paths and custom
+scheduled Worker entry. Its local preview enables local-only automatic
+migrations; production uses deployment-managed migration checks.
 
 The integration also loads `ZE_PUBLIC_*` values from the site's `.env` files
 and rewrites `import.meta.env.ZE_PUBLIC_*` and `process.env.ZE_PUBLIC_*` reads
@@ -58,7 +73,8 @@ variables](../env-vars.md) covers that model.
 
 - Do not treat a successful `astro build` as publication. Zephyr errors in the
   build hook are logged and the build continues unless `ZE_FAIL_BUILD=true` is
-  set; only an invalid `target` throws immediately.
+  set for static builds. Cloudflare SSR preparation failures always fail the
+  build; an invalid `target` also throws immediately.
 - Do not set `target: 'tap-app'` on an ordinary site. TAP disables the
   `ZE_PUBLIC_*` rewrite and requires paired federation metadata.
 - Do not assume source maps are published; `.map` files are skipped for
