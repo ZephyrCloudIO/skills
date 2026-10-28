@@ -59,7 +59,7 @@ bindings, or advertise a live SSR deployment based only on a successful build.
 
 Use `ZE_DISABLED=true` for local-only output verification. The exported
 `collectCloudflareOutput(projectRoot)` inspects a completed build without
-credentials or network access. The `examples/astro-emdash` fixture uses
+credentials or network access. The `fixtures/astro-emdash` fixture uses
 published EmDash packages and preserves its native admin/API paths and custom
 scheduled Worker entry. Its local preview enables local-only automatic
 migrations; production uses deployment-managed migration checks.
