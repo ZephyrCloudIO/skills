@@ -76,6 +76,35 @@ the deployment URL after upload; a failing hook is logged and does not fail
 the build. The deployment plugin does not skip development compilations, so
 publish through the app's existing production bundle command for each platform.
 
+## Embed remotes for first-launch offline (optional)
+
+Only when the user asks for remotes that load on a first launch without
+network. Set `embedRemotes` in `zephyr.config.*`. It is not a `withZephyr()`
+option. Type the file with `ZephyrRepackConfig`, exported by
+`zephyr-repack-plugin`:
+
+```ts
+// zephyr.config.ts
+import type { ZephyrRepackConfig } from 'zephyr-repack-plugin';
+
+export default { embedRemotes: { exclude: ['analytics'] } } satisfies ZephyrRepackConfig;
+```
+
+In a JS config, use `/** @type {import('zephyr-repack-plugin').ZephyrRepackConfig} */`.
+`true` embeds every declared remote; `exclude` lists remote names to leave out.
+
+- It requires `@callstack/repack` 5.1 or newer (`ScriptManager` hooks); older
+  versions fail the build. `zephyr-native-cache` is not needed.
+- Only production builds act on it. They download each remote as resolved for
+  the platform and write `zephyr-remote-*` files where Re.Pack copies local
+  chunks (`--assets-dest` on iOS, the `--bundle-output` directory on Android).
+- A remote that did not resolve, cannot be downloaded, or has two files with the
+  same name fails the build with `ZE10038` naming it, even outside CI. Fix the
+  remote or add it to `exclude`.
+- Runtime order per remote: network, then the embedded copy
+  (`[zephyr-embed] <remote>: network unavailable; using the copy embedded in the app`).
+  Nested remotes are not embedded.
+
 ## Avoid misleading fixes
 
 - Do not pass a config object to the inner call. `withZephyr()(config)` with an

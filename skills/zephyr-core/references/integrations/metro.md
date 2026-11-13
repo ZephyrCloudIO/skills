@@ -86,6 +86,44 @@ as normal for host bundles written elsewhere, such as by the Xcode bundling
 phase. For custom output paths, RNEF details, or a hand-written command
 wrapper, read [publication commands](metro-publication-commands.md).
 
+## Embed remotes for first-launch offline (optional)
+
+Only when the user asks for remotes that load on a first launch without
+network. Set `embedRemotes` in `zephyr.config.*`. It is not a `withZephyr()`
+option. Type the file with `ZephyrMetroConfig`, exported by
+`zephyr-metro-plugin`:
+
+```ts
+// zephyr.config.ts
+import type { ZephyrMetroConfig } from 'zephyr-metro-plugin';
+
+export default { embedRemotes: { exclude: ['analytics'] } } satisfies ZephyrMetroConfig;
+```
+
+In a JS config, use `/** @type {import('zephyr-metro-plugin').ZephyrMetroConfig} */`.
+`true` embeds every declared remote; `exclude` lists remote names to leave out.
+
+- It needs `zephyr-native-cache` installed and `ZephyrNativeCache.register()`
+  called at startup: only its native module reads the embedded files. Without
+  it the build warns, and at runtime the app logs
+  `[zephyr-embed] <remote>: zephyr-native-cache is not registered` and behaves
+  as if the option were off.
+- Only production `bundle-mf-host` runs act on it. They download each remote as
+  resolved for the platform and write `zephyr-remote-*` files next to
+  `--bundle-output` (iOS: `--assets-dest` when set). The release build then
+  packages them.
+- A remote that did not resolve or cannot be downloaded fails the build with
+  `ZE10038` naming it. Fix the remote or add it to `exclude`; do not remove the
+  option to get a green build.
+- Runtime order per remote: network, then the last manifest loaded online when
+  its container is cached, then the embedded copy
+  (`[zephyr-embed] <remote>: network unavailable; using the copy embedded in the app`).
+  Nested remotes are not embedded.
+
+Verify by listing `zephyr-remote-*` files in the `.app` or the APK
+(`unzip -l app-release.apk | grep zephyr-remote-`). A fresh install launched
+offline should then render the remotes.
+
 ## Avoid misleading fixes
 
 - Do not expect `withZephyr()` alone to deploy. Its success log states that no
