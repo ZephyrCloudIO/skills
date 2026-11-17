@@ -34,6 +34,17 @@ Common symptoms:
 - CI token works for one org/app but not another
 - build accepts config but publish fails later
 
+### Zephyr unreachable
+
+Error code `ZE50001` (category `unreachable`) means the plugin could not reach Zephyr
+or Zephyr failed on its side: network, DNS, timeout, or an HTTP 5xx response. A wrapper
+code such as `ZE20014` can sit on top of it; the reason line shows `ZE50001`. Nothing
+in the project or the credentials needs a fix. Retry later and check
+https://status.zephyr-cloud.io. By default the build still succeeds without a deploy;
+`ZE_FAIL_BUILD=true` makes it fail. An HTTP 4xx response is `ZE40035` (config), not
+an outage. `ze-cli deploy <dir> --format json` prints one JSON document on stdout with
+`error.kind: "unreachable"` and exits 1.
+
 ### Docs drift to call out
 
 - If Rspack docs and examples disagree, prefer `zephyr-rspack-plugin` from the SDK picker and examples.
