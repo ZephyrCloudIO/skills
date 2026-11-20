@@ -49,6 +49,9 @@ plugin's `remotes`, resolves them for the platform being built, and rewrites
 each resolved remote to a plain `name@url` string. Re.Pack remotes do not get
 the browser runtime-loader code used by web bundlers. Use the
 `zephyr-module-federation` guide for host/remote wiring and build order.
+To consume per-platform remote environments from one selector, use the
+`${target}` placeholder (`remote@dev-${target}` resolves `dev-ios` or
+`dev-android`); see the `zephyr-module-federation` remote-resolution reference.
 
 A host keeps its local remote declarations; Zephyr replaces those it resolves:
 

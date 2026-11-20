@@ -40,6 +40,24 @@ The `zephyr:` registry prefix is optional in current docs.
 - Semver: `@^1.2.3`, `@~2.0.0`, `@1.5.0`
 - Wildcard latest: `*`
 - Workspace matching: `workspace:*`
+- Build target placeholder: `@dev-${target}` (combines with any label)
+
+## `${target}` placeholder
+
+The SDK replaces `${target}` in a selector with the build target (`web`, `ios`, `android`, or `tap-app`) before resolving it. Use it when a remote keeps one environment or tag per platform, which React Native remotes need because an environment points to a single version:
+
+```json
+{
+  "zephyr:dependencies": {
+    "mobile-cart": "zephyr:mobile-cart.super-app.acme@dev-${target}"
+  }
+}
+```
+
+- An iOS host build resolves `dev-ios`; an Android host build resolves `dev-android`. No per-platform `package.json` edits in CI.
+- Each per-platform label must exist. Environment conditions only follow a tag or version, so `dev-ios` typically follows a tag whose conditions include `target is ios`.
+- In a JavaScript `zephyr.config.*`, write the selector in plain quotes; a template literal would interpolate `${target}` as a JS variable.
+- Requires a `zephyr-agent` release that includes [zephyr-packages#711](https://github.com/ZephyrCloudIO/zephyr-packages/pull/711); older SDKs send the literal placeholder and fail to resolve.
 
 ## `workspace:*`
 
