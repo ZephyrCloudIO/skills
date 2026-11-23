@@ -39,19 +39,60 @@ Zephyr derives application identity from them.
 ze-cli pnpm build
 ze-cli deploy ./dist
 ze-cli deploy ./dist --ssr
+ze-cli deploy ./dist --dry-run
 ze-cli doctor . --format json
 ```
 
 For the default run command, put `ze-cli` options before the build command;
 everything after the first non-flag argument is the command line. `deploy` and
 `watch` take their options after the directory. `--target` accepts `web`
-(default), `ios`, `android`, or `tap-app`.
+(default), `ios`, `android`, `tap-app`, or `worker`.
 
 Run mode detects the output directory statically from `npm`/`yarn`/`pnpm`
 scripts (followed recursively), `tsc`, `webpack`, `rollup`, `vite`, `esbuild`,
 and `swc`. Commands joined with `&&` run in order and upload their common output
 ancestor. When a JavaScript config is too dynamic to analyze, run the build
 yourself and use `ze-cli deploy <dir>` with the directory you know it writes.
+
+## Choose what deploy uploads
+
+`ze-cli deploy <dir>` reads `<dir>/zephyr.config.json` (or `--config <path>`
+inside that directory) when present. The file is validated against the JSON
+Schema shipped as `zephyr-cli/zephyr.config.schema.json`; `version`, `output`
+and `include` are required, `exclude`, `target` and `metadata` are optional.
+`include` and `exclude` are arrays of globs relative to `output`, written with
+`/` and without `..`. `--include`, `--exclude` and `--output` replace the file's
+values; they are not merged.
+
+Example only, not guidance:
+
+```json
+{
+  "version": "1.0.0",
+  "output": "dist",
+  "include": ["**/*"],
+  "exclude": ["**/*.map"]
+}
+```
+
+Run `ze-cli deploy <dir> --dry-run` (add `--format json` for automation) to see
+the exact files, sizes and excluded files with the rule that excluded them. It
+uploads nothing and needs no login. It exits non-zero when nothing would upload.
+
+Some guards always apply, with or without a config, and cannot be overridden:
+
+- Credential and environment files (`.env*`, `.envrc`, `.dev.vars*`, Wrangler
+  configs, private keys, `.npmrc`, `.ssh/`, `.git/`, `node_modules/` and
+  similar) are never uploaded, and symlinks pointing outside the directory are
+  skipped.
+- A directory holding `wrangler.toml`, `wrangler.json` or `wrangler.jsonc` is
+  refused unless a `zephyr.config.json` is in effect.
+- Only compiled output is accepted: TypeScript sources and project roots
+  (`package.json` with `src/`, `tsconfig.json` or a lockfile) are refused.
+
+When deploy refuses a directory, point it at the build output or add a
+`zephyr.config.json`; do not move secrets around to get past the guard.
+Unknown deploy options are errors, so check spelling rather than dropping flags.
 
 ## TAP mini-app publication
 
