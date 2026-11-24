@@ -80,7 +80,9 @@ and failure semantics, read [compiler arrays and publication](webpack-compiler-a
   Rspack builder and adds Rspack-only `ZE_PUBLIC_*` handling.
 - Do not treat a finished webpack build as a deployment. Single-config
   publication errors are logged and the build continues unless
-  `ZE_FAIL_BUILD=true` is set.
+  `ZE_FAIL_BUILD=true` is set. By default, a CI build with `ZE_CI_TOKEN` set fails
+  too. A denied deploy (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD` is not
+  set. See [Deploy denied](../troubleshooting.md#deploy-denied).
 - Do not put credentials in `ZE_PUBLIC_*`; those values are client-visible.
 
 ## Verify completion

@@ -58,7 +58,10 @@ variables](../env-vars.md) covers that model.
 
 - Do not treat a successful `astro build` as publication. Zephyr errors in the
   build hook are logged and the build continues unless `ZE_FAIL_BUILD=true` is
-  set; only an invalid `target` throws immediately.
+  set; only an invalid `target` throws immediately. By default, a CI build with
+  `ZE_CI_TOKEN` set fails too. A denied deploy (`ZE10038`) fails any CI build when
+  `ZE_FAIL_BUILD` is not set. See [Deploy
+  denied](../troubleshooting.md#deploy-denied).
 - Do not set `target: 'tap-app'` on an ordinary site. TAP disables the
   `ZE_PUBLIC_*` rewrite and requires paired federation metadata.
 - Do not assume source maps are published; `.map` files are skipped for

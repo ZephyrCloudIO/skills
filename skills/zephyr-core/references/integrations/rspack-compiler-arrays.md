@@ -75,7 +75,10 @@ array must resolve to the same base, or publication fails.
 
 Configuration and publication errors, including an unreachable Zephyr, are logged
 and the Rspack build continues. Set `ZE_FAIL_BUILD=true` (or the `failBuild`
-option) when the build must fail on them. This is the same for a single config
+option) when the build must fail on them. By default, a CI build with `ZE_CI_TOKEN`
+set fails too. A denied deploy (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD`
+is not set. See [Deploy denied](../troubleshooting.md#deploy-denied). This is the
+same for a single config
 and for an array. For an array, a configuration error releases the shared build
 instead of waiting for a compiler that will never report, removes the Zephyr
 plugins from every config, and then follows that setting.

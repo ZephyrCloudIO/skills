@@ -61,7 +61,10 @@ for static sites, custom output paths, or `app.baseURL`.
 - Do not set `target: 'tap-app'` on an ordinary app. TAP requires paired
   federation metadata and changes how public files are mapped.
 - Do not treat a successful `nuxt build` as publication. Upload errors are
-  logged and the build continues unless `ZE_FAIL_BUILD=true` is set. An empty
+  logged and the build continues unless `ZE_FAIL_BUILD=true` is set. By default, a
+  CI build with `ZE_CI_TOKEN` set fails too. A denied deploy (`ZE10038`) fails any
+  CI build when `ZE_FAIL_BUILD` is not set. See [Deploy
+  denied](../troubleshooting.md#deploy-denied). An empty
   output directory skips publication silently in either case.
 - Do not put credentials in `ZE_PUBLIC_*`; those values are client-visible.
 

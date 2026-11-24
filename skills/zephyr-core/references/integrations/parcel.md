@@ -55,7 +55,10 @@ describe containers that the build already emits. The shared
 - The reporter has no development-mode guard. Every successful build publishes,
   including rebuilds under `parcel` serve and `parcel watch`.
 - Zephyr errors are logged, and `parcel build` still exits successfully, unless
-  `ZE_FAIL_BUILD=true` is set. That setting makes the build fail.
+  `ZE_FAIL_BUILD=true` is set. That setting makes the build fail. By default, a CI
+  build with `ZE_CI_TOKEN` set fails too. A denied deploy (`ZE10038`) fails any CI
+  build when `ZE_FAIL_BUILD` is not set. See [Deploy
+  denied](../troubleshooting.md#deploy-denied).
 
 ## Avoid misleading fixes
 

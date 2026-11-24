@@ -79,7 +79,9 @@ compiler succeeds. For arrays, SSR layouts, `ZE_PUBLIC_*` rewrites,
   `@rspack/core` `^1.0.0 || ^2.0.0-0`.
 - Do not treat a finished Rspack build as a deployment. Single-config
   publication errors are logged and the build continues unless
-  `ZE_FAIL_BUILD=true` is set.
+  `ZE_FAIL_BUILD=true` is set. By default, a CI build with `ZE_CI_TOKEN` set fails
+  too. A denied deploy (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD` is not
+  set. See [Deploy denied](../troubleshooting.md#deploy-denied).
 - Do not put credentials in `ZE_PUBLIC_*`; those values are client-visible.
 
 ## Verify completion

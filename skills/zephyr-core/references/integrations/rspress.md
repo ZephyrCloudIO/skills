@@ -72,6 +72,9 @@ build without credentials can establish local output correctness, not live
 deployment. Report that distinction.
 
 Zephyr errors in this plugin are logged rather than thrown unless
-`ZE_FAIL_BUILD=true`, so a finished build alone is not proof of publication.
+`ZE_FAIL_BUILD=true`, so a finished build alone is not proof of publication. By
+default, a CI build with `ZE_CI_TOKEN` set fails too. A denied deploy (`ZE10038`)
+fails any CI build when `ZE_FAIL_BUILD` is not set. See [Deploy
+denied](../troubleshooting.md#deploy-denied).
 On failure, keep the actionable error and fix the matching configuration. Do
 not suppress errors or claim that a partial upload was deployed.
