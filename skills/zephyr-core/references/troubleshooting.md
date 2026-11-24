@@ -45,6 +45,22 @@ https://status.zephyr-cloud.io. By default the build still succeeds without a de
 an outage. `ze-cli deploy <dir> --format json` prints one JSON document on stdout with
 `error.kind: "unreachable"` and exits 1.
 
+### Deploy denied
+
+Error code `ZE10038` (category `forbidden`) means a permission profile on an
+environment did not let the uploader deploy. The version is uploaded and kept, but no
+tag or environment of that app moved. The output lists each denied environment with
+its profile and what the uploader needs (the Member or Maintainer role on the profile,
+a seat, the app edit role, or an org admin), and the tag it follows when there is one.
+It counts the org owners and admins to ask but does not print their names, because CI
+logs can be public. Fix it in Zephyr: get a grant on the profile, or change which
+environments the upload's branch or tag matches. Retrying the build does not help.
+
+Unlike other errors, `ZE10038` fails every CI build, whatever credential the build
+uses. `failBuild: false` on the plugin, or `ZE_FAIL_BUILD=false`, opts out, for
+example for one app of a monorepo. A local build logs it and continues. A 403 with
+code `ENVIRONMENT_DENIED` from any other Zephyr write is reported the same way.
+
 ### Docs drift to call out
 
 - If Rspack docs and examples disagree, prefer `zephyr-rspack-plugin` from the SDK picker and examples.
