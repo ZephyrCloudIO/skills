@@ -87,7 +87,9 @@ publish through the app's existing production bundle command for each platform.
   configures the build, such as a failed remote resolution or an invalid
   container name, are logged and the deployment plugin is not added, unless
   `ZE_FAIL_BUILD=true` makes them fail the build. Upload errors are likewise
-  logged rather than thrown by default.
+  logged rather than thrown by default. By default, a CI build with `ZE_CI_TOKEN`
+  set fails too. A denied deploy (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD`
+  is not set. See [Deploy denied](../troubleshooting.md#deploy-denied).
 - Do not put credentials in `ZE_PUBLIC_*`; those values are client-visible.
 
 ## Verify completion

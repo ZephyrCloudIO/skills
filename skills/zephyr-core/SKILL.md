@@ -78,7 +78,7 @@ than the Vite guide, and Modern.js or Rspress rather than Rsbuild.
 4. Read `references/env-vars.md` if the task mentions env vars, runtime config, build once deploy everywhere, or `ZE_PUBLIC_*`.
 5. Read `references/examples-resume.md` when the user wants concrete starter patterns.
 6. Read `references/docs-map.md` when deeper docs links are useful.
-7. Read `references/troubleshooting.md` when setup/build/auth/git issues appear.
+7. Read `references/troubleshooting.md` when setup/build/auth/git issues or a denied deploy appear.
 
 ## Source priorities
 

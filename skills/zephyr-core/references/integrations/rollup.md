@@ -57,7 +57,10 @@ the cross-project host and remote model.
 - Watch mode reuses the plugin instance and publishes again after each rebuild
   is written.
 - Zephyr errors are logged, and the Rollup command still exits successfully,
-  unless `ZE_FAIL_BUILD=true` is set. That setting rethrows them and fails the build.
+  unless `ZE_FAIL_BUILD=true` is set. That setting rethrows them and fails the
+  build. By default, a CI build with `ZE_CI_TOKEN` set fails too. A denied deploy
+  (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD` is not set. See [Deploy
+  denied](../troubleshooting.md#deploy-denied).
 
 ## Avoid misleading fixes
 

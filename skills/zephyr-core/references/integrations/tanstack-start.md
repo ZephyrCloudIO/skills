@@ -71,7 +71,10 @@ entry, output directory, or snapshot type differ from the defaults.
   default snapshot to CSR and requires paired federation metadata.
 - Do not treat a successful Vite build as publication. Upload errors are logged
   and the build continues unless `ZE_FAIL_BUILD=true` is set; only option
-  validation and incomplete environments always fail the build.
+  validation and incomplete environments always fail the build. By default, a CI
+  build with `ZE_CI_TOKEN` set fails too. A denied deploy (`ZE10038`) fails any CI
+  build when `ZE_FAIL_BUILD` is not set. See [Deploy
+  denied](../troubleshooting.md#deploy-denied).
 - Do not put credentials in `ZE_PUBLIC_*`; those values are client-visible.
 
 ## Verify completion

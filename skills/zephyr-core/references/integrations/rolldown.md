@@ -62,7 +62,9 @@ cross-project host and remote model.
 - A build error marks the active Zephyr build as failed. A failed upload is
   rolled back so that a later write can retry.
 - Zephyr errors are logged, and the build still exits successfully, unless
-  `ZE_FAIL_BUILD=true` is set.
+  `ZE_FAIL_BUILD=true` is set. By default, a CI build with `ZE_CI_TOKEN` set fails
+  too. A denied deploy (`ZE10038`) fails any CI build when `ZE_FAIL_BUILD` is not
+  set. See [Deploy denied](../troubleshooting.md#deploy-denied).
 
 ## Avoid misleading fixes
 
