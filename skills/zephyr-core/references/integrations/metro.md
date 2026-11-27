@@ -63,6 +63,9 @@ bundling, Zephyr resolves `zephyr:dependencies` and federation `remotes`, then
 rewrites each resolved remote to the plain `name@url` form that Metro accepts,
 preferring the remote's manifest URL.
 Use the `zephyr-module-federation` guide for host/remote wiring and build order.
+To consume per-platform remote environments from one selector, use the
+`${target}` placeholder (`remote@dev-${target}` resolves `dev-ios` or
+`dev-android`); see the `zephyr-module-federation` remote-resolution reference.
 
 Metro publishes native bundles only. Every entry point accepts `ios` or
 `android` and rejects any other value, including `tap-app`, before Zephyr
