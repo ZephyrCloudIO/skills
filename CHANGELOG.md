@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/ZephyrCloudIO/skills/compare/v1.1.0...v1.2.0) (2026-11-27)
+
+
+### Features
+
+* **skills:** bring Zephyr SDK skills back from zephyr-packages ([#8](https://github.com/ZephyrCloudIO/skills/issues/8)) ([c27cea5](https://github.com/ZephyrCloudIO/skills/commit/c27cea531872516ee755bb7060c1be41fa90c3a6))
+
+
+### Documentation
+
+* **skills:** troubleshooting entry for a denied deploy (ZE10038) ([#17](https://github.com/ZephyrCloudIO/skills/issues/17)) ([01b2691](https://github.com/ZephyrCloudIO/skills/commit/01b26910d0bc549f5b5c725f37ffa8d294a49e65))
+* **skills:** ZE_FAIL_BUILD for compiler arrays and the unreachable error ([#12](https://github.com/ZephyrCloudIO/skills/issues/12)) ([9187814](https://github.com/ZephyrCloudIO/skills/commit/918781447ebadcab737a072a8557fee0c387c49a))
+
 ## [1.1.0](https://github.com/ZephyrCloudIO/skills/compare/v1.0.0...v1.1.0) (2026-10-02)
 
 
